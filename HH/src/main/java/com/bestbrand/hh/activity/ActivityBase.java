@@ -48,7 +48,6 @@ public class ActivityBase extends FragmentActivity implements OnClickListener,
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         mContext = this;
-        mContext = this;
         XActivityManager.addActivity(this);
         netdialog = new NetworkCongestionDialog(this);
     }
