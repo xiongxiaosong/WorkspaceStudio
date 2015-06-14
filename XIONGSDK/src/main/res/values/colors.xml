@@ -1,0 +1,32 @@
+<resources>
+
+    <color name="huise">#787878</color>
+    <color name="baise">#ffffff</color>
+    <color name="hongse">#ff0000</color>
+    <color name="heise">#000000</color>
+    <color name="lvse">#006000</color>
+    <color name="huangse">#f9f900</color>
+    <color name="zise">#7e3d76</color>
+    <color name="lanse">#007aff</color>
+    <!--  <color name="lanse">#85D0E7</color>-->
+    <color name="zongse">#642100</color>
+    <color name="chengse">#FF8000</color>
+    <color name="danlanse">#56b9ff</color>
+    <!--<color name="danlanse">#85D0E7</color>-->
+    <color name="danzise">#ca8ec2</color>
+    <color name="danhuangse">#ffff6f</color>
+    <color name="danhongse">#ff7575</color>
+    <color name="danlvse">#79ff79</color>
+    <color name="jinhuangse">#f9f900</color>
+    <color name="lanzise">#6f00d2</color>
+    <color name="fenhongse">#ff60af</color>
+    <color name="lanlvse">#02f78e</color>
+    <color name="zihongse">#750075</color>
+    <color name="qianhuise">#BBBBBB</color>
+    <color name="jiuhongse">#BB2332</color>
+    <color name="cacheColorHint">#00000000</color>
+    <color name="charline_hongse">#de0b08</color>
+    <color name="charline_chengse">#e4a51e</color>
+    <color name="charline_lvse">#64bb07</color>
+
+</resources>

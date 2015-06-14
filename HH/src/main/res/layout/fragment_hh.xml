@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+<com.bestbrand.hh.view.TitleBar
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"></com.bestbrand.hh.view.TitleBar>
+    <com.xxs.sdk.view.XExpandableView
+        android:id="@+id/fragment_hh_frendlist"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:fadingEdge="none"
+        android:listSelector="@color/cacheColorHint"
+        android:cacheColorHint="@color/cacheColorHint" />
+
+</LinearLayout>

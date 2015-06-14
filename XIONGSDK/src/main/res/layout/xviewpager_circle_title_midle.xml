@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:background="@color/lanse" />
+
+    <LinearLayout
+        android:id="@+id/xviewpager_circletitle_textcontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/xviewpager_circle_title"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:minWidth="40dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/xviewpager_circletitle_textfirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/baise"
+            android:textSize="25sp"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:id="@+id/xviewpager_circletitle_textsecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/baise"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

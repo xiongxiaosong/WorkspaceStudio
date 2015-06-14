@@ -1,0 +1,41 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <!-- 自定义titleBar属性 -->
+    <declare-styleable name="titlebar">
+
+        <!-- 标题文字 -->
+        <attr name="titleText" format="string" />
+        <!-- 左边图片 -->
+        <attr name="leftDrawable" format="reference" />
+        <!-- 右边图片 -->
+        <attr name="rightDrawable" format="reference" />
+        <!-- 右边文字 -->
+        <attr name="rightText" format="string" />
+        <!-- 右边文字颜色 -->
+        <attr name="rightTextColor" format="color" />
+        <!-- 展示类型 -->
+        <attr name="showtype" format="integer">
+            <flag name="none" value="1" />
+            <flag name="left" value="2" />
+            <flag name="right" value="3" />
+            <flag name="both" value="4" />
+        </attr>
+    </declare-styleable>
+
+</resources>

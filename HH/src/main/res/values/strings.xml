@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- =================common================ -->
+    <string name="app_name">互互</string>
+    <string name="login">登录</string>
+    <string name="regist">注册</string>
+    <string name="forgotpassword">忘记密码</string>
+    <string name="changepassword">修改密码</string>
+    <string name="username">用户名</string>
+    <string name="username2">用户名:</string>
+    <string name="password">密码</string>
+    <string name="password2">密码:</string>
+    <string name="name">姓名</string>
+    <string name="name2">姓名:</string>
+    <string name="sex">性别</string>
+    <string name="sex2">性别:</string>
+    <string name="telephone">手机</string>
+    <string name="telephone2">手机:</string>
+    <string name="email">邮箱</string>
+    <string name="email2">邮箱:</string>
+    <string name="passwordensure">密码确认</string>
+    <string name="passwordensure2">密码确认:</string>
+    <!-- =================主界面================ -->
+    <string name="string_found">发现</string>
+    <string name="string_hh">互互</string>
+    <!-- =================注册================ -->
+    <string name="get_now">立即拥有</string>
+    <string name="hasget_hh">已经拥有互互</string>
+
+</resources>

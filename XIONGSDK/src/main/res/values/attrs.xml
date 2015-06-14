@@ -1,0 +1,314 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <declare-styleable name="SlidingMenu">
+        <attr name="mode">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="viewAbove" format="reference" />
+        <attr name="viewBehind" format="reference" />
+        <attr name="behindOffset" format="dimension" />
+        <attr name="behindWidth" format="dimension" />
+        <attr name="behindScrollScale" format="float" />
+        <attr name="touchModeAbove">
+            <enum name="margin" value="0" />
+            <enum name="fullscreen" value="1" />
+        </attr>
+        <attr name="touchModeBehind">
+            <enum name="margin" value="0" />
+            <enum name="fullscreen" value="1" />
+        </attr>
+        <attr name="shadowDrawable" format="reference" />
+        <attr name="shadowWidth" format="dimension" />
+        <attr name="fadeEnabled" format="boolean" />
+        <attr name="fadeDegree" format="float" />
+        <attr name="selectorEnabled" format="boolean" />
+        <attr name="selectorDrawable" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="swipelistviewstyle">
+        <attr name="right_width" format="dimension"></attr>
+    </declare-styleable>
+    <!-- 自定义的圆形图片属性 -->
+    <declare-styleable name="roundedimageview">
+
+        <!-- 圆周线条大小 -->
+        <attr name="border_thickness" format="dimension" />
+        <!-- 内圆颜色 -->
+        <attr name="border_inside_color" format="color" />
+        <!-- 外圆颜色 -->
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+    <!-- 自定义图表控件 -->
+    <declare-styleable name="XcharView">
+
+        <!-- 图表模式 0线条图,1饼状图,2柱形图 -->
+        <attr name="xcharmode">
+            <enum name="line" value="0"></enum>
+            <enum name="column" value="1"></enum>
+            <enum name="pie" value="2"></enum>
+        </attr>
+        <!-- 纵坐标显示刻度方式 0数字 1百分比 -->
+        <attr name="xcharverticlunitmode">
+            <enum name="number" value="0"></enum>
+            <enum name="percent" value="1"></enum>
+        </attr>
+        <!-- 线条数 -->
+        <attr name="xcharlinenumber" format="integer" max="5" min="0"></attr>
+        <!-- 柱形数 -->
+        <attr name="xcharcolumnnumber" format="integer" max="5" min="0"></attr>
+        <!-- 饼块数 -->
+        <attr name="xcharpienumber" format="integer"></attr>
+        <!-- 横坐标分割数 -->
+        <attr name="xcharhorizontalnumber" format="integer" min="0"></attr>
+        <!-- 纵坐标分个数 -->
+        <attr name="xcharverticlnumber" format="integer" min="0"></attr>
+        <!-- 是否允许绘制表格线条 -->
+        <attr name="allowdividingline" format="boolean"></attr>
+        <!-- 是否允许绘制中心小圆 -->
+        <attr name="allowcentercircle" format="boolean"></attr>
+        <!-- 默认最大值 -->
+        <attr name="defultmaxvalue" format="integer"></attr>
+        <!-- 中心小圆显示文字 -->
+        <attr name="centercircletext" format="string"></attr>
+        <!-- 图表名称 -->
+        <attr name="xcharviewname" format="string"></attr>
+        <!-- 图标名称文字的颜色 -->
+        <attr name="xcharviewnamecolor" format="color"></attr>
+    </declare-styleable>
+    <!-- 自定义画圆弧的属性 -->
+    <declare-styleable name="ArcView">
+
+        <!-- 圆弧模式  stoken画狐 full画饼 -->
+        <attr name="arcviewstokenmode">
+            <enum name="stoken" value="0"></enum>
+            <enum name="full" value="1"></enum>
+        </attr>
+        <!-- 渐变模式  liner线性渐变从上到下 swape圆周渐变0-360 radial径向渐变 -->
+        <attr name="arcviewshadermode">
+            <enum name="liner" value="0"></enum>
+            <enum name="swape" value="1"></enum>
+            <enum name="radial" value="2"></enum>
+        </attr>
+        <!-- 圆弧宽度 -->
+        <attr name="arcviewwidth" format="dimension"></attr>
+        <!-- 起始颜色 -->
+        <attr name="arcviewstartcolor" format="color"></attr>
+        <!-- 中间颜色 -->
+        <attr name="arcviewmindlecolor" format="color"></attr>
+        <!-- 结束颜色 -->
+        <attr name="arcviewendcolor" format="color"></attr>
+        <!-- 圆弧颜色 -->
+        <attr name="arcviewcolor" format="color"></attr>
+        <!-- 是否在中心画一小圆 -->
+        <attr name="arcviewusecenter" format="boolean"></attr>
+        <!-- 是否允许执行画狐动画 -->
+        <attr name="arcviewallowanimation" format="boolean"></attr>
+        <!-- 起始角度 -->
+        <attr name="arcviewstartangle" format="float"></attr>
+        <!-- 圆弧弧度 -->
+        <attr name="arcviewsweepangle" format="float"></attr>
+    </declare-styleable>
+    <!-- 自定义圆形View控件的属性 -->
+    <declare-styleable name="XCircleView">
+        <!-- 填充颜色 -->
+        <attr name="xcircleviewcolor" format="color"></attr>
+    </declare-styleable>
+    <!-- 自定义滚轮控件属性 -->
+    <declare-styleable name="XWheelView">
+
+        <!-- 文字颜色 -->
+        <attr name="xwheeltextcolor" format="color" />
+        <attr name="xwheelmodle">
+            <enum name="normal" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <!-- 可见项数 -->
+        <attr name="xwheelvisibleitems" format="integer" />
+        <!-- 是否循环滚动 -->
+        <attr name="xwheeliscircle" format="boolean" />
+        <!-- 文字大小 -->
+        <attr name="xwheeltextsize" format="dimension" />
+    </declare-styleable>
+    <!-- 自定义三角函数控件属性 -->
+    <declare-styleable name="XTrigonometricView">
+
+        <!-- 第一条三角函数模型 sin正弦函数,cos与弦函数,tan正切函数,cot余切函数,arcsin反正弦函数,arccos反余弦函数,arctan反正切函数,arccot反余切函数 -->
+        <attr name="XTrigonometricView_firstmodle" format="integer">
+            <enum name="sin" value="0"></enum>
+            <enum name="cos" value="1"></enum>
+            <enum name="tan" value="2"></enum>
+            <enum name="cot" value="3"></enum>
+            <enum name="arcsin" value="4"></enum>
+            <enum name="arccos" value="5"></enum>
+            <enum name="arctan" value="6"></enum>
+            <enum name="arccot" value="7"></enum>
+        </attr>
+        <!-- 第一条三角函数模型 sin正弦函数,cos与弦函数,tan正切函数,cot余切函数,arcsin反正弦函数,arccos反余弦函数,arctan反正切函数,arccot反余切函数 -->
+        <attr name="XTrigonometricView_secondmodle" format="integer">
+            <enum name="sin" value="0"></enum>
+            <enum name="cos" value="1"></enum>
+            <enum name="tan" value="2"></enum>
+            <enum name="cot" value="3"></enum>
+            <enum name="arcsin" value="4"></enum>
+            <enum name="arccos" value="5"></enum>
+            <enum name="arctan" value="6"></enum>
+            <enum name="arccot" value="7"></enum>
+        </attr>
+        <!-- 绘制哪些象限  绘制象限 one第一象限,two第二象限,three第三象限,four第四象限,oneandtwo第一二象限,threeandfour第三四象限,oneandfour第一四象限,twoandthree第二三象限,onetwothreefour第一二三四象限 -->
+        <attr name="XTrigonometricView_xiangxian" format="integer">
+            <enum name="one" value="0"></enum>
+            <enum name="two" value="1"></enum>
+            <enum name="three" value="2"></enum>
+            <enum name="four" value="3"></enum>
+            <enum name="oneandtwo" value="4"></enum>
+            <enum name="threeandfour" value="5"></enum>
+            <enum name="oneandfour" value="6"></enum>
+            <enum name="twoandthree" value="7"></enum>
+            <enum name="onetwothreefour" value="8"></enum>
+        </attr>
+        <!-- 第一条曲线的颜色 -->
+        <attr name="XTrigonometricView_firstlinecolor" format="color"></attr>
+        <!-- 第二条曲线的颜色 -->
+        <attr name="XTrigonometricView_secondlinecolor" format="color"></attr>
+        <!-- XY坐标轴线颜色 -->
+        <attr name="XTrigonometricView_xylinecolor" format="color"></attr>
+        <!-- 基准线颜色 -->
+        <attr name="XTrigonometricView_jizhunlinecolor" format="color"></attr>
+        <!-- 曲线线条宽度 -->
+        <attr name="XTrigonometricView_linewidth" format="dimension"></attr>
+        <!-- xy坐标轴线条宽度 -->
+        <attr name="XTrigonometricView_xywidth" format="dimension"></attr>
+        <!-- 边框距离 -->
+        <attr name="XTrigonometricView_pading" format="dimension"></attr>
+        <!-- 第一条曲线系数 -->
+        <attr name="XTrigonometricView_firstcoefficient" format="integer"></attr>
+        <!-- 第一条曲线常量 -->
+        <attr name="XTrigonometricView_firstconstant" format="integer"></attr>
+        <!-- 第一条曲线偏移量 -->
+        <attr name="XTrigonometricView_firstoffset" format="integer"></attr>
+        <!-- 第二条曲线系数 -->
+        <attr name="XTrigonometricView_secondcoefficient" format="integer"></attr>
+        <!-- 第二条曲线常量 -->
+        <attr name="XTrigonometricView_secondconstant" format="integer"></attr>
+        <!-- 第二条曲线偏移量 -->
+        <attr name="XTrigonometricView_secondoffset" format="integer"></attr>
+        <!-- 第一条曲线的名字 -->
+        <attr name="XTrigonometricView_firstname" format="string"></attr>
+        <!-- 第二条曲线的名字 -->
+        <attr name="XTrigonometricView_secondname" format="string"></attr>
+        <!-- 整个视图的名字 -->
+        <attr name="XTrigonometricView_viewname" format="string"></attr>
+        <!-- 绘制文字的大小 -->
+        <attr name="XTrigonometricView_textsize" format="dimension"></attr>
+        <!-- 是否允许绘制表格 -->
+        <attr name="XTrigonometricView_allowtab" format="boolean"></attr>
+        <!-- 横向分割数 -->
+        <attr name="XTrigonometricView_heronumber" format="integer"></attr>
+        <!-- 纵向分割数 -->
+        <attr name="XTrigonometricView_vernumber" format="integer"></attr>
+        <!-- View视图名称的颜色 -->
+        <attr name="XTrigonometricView_viewnamecolor" format="color"></attr>
+    </declare-styleable>
+    <!-- 自定义waveview波浪属性 -->
+    <declare-styleable name="waveview">
+
+        <!-- 波浪背景颜色 -->
+        <attr name="wavebackcolor" format="color"></attr>
+        <!-- 波浪线条颜色 -->
+        <attr name="wavelinecolor" format="color"></attr>
+        <!-- 波浪进度百分比 -->
+        <attr name="wavepercent" format="float" maxvalue="100" minvalue="0"></attr>
+        <!-- 振幅 -->
+        <attr name="waveamplitude" format="dimension"></attr>
+        <!-- 波长 -->
+        <attr name="wavelength" format="dimension"></attr>
+        <!-- 波浪线条宽度 -->
+        <attr name="wavelinewidth" format="dimension"></attr>
+    </declare-styleable>
+    <!-- 自定义waveviewball波浪球属性 -->
+    <declare-styleable name="waveballview">
+
+        <!-- 布局背景颜色 -->
+        <attr name="waveballlaybackcolor" format="color"></attr>
+        <!-- 波浪背景颜色 -->
+        <attr name="waveballbackcolor" format="color"></attr>
+        <!-- 波浪线条颜色 -->
+        <attr name="waveballlinecolor" format="color"></attr>
+        <!-- 波浪进度百分比 -->
+        <attr name="waveballpercent" format="float" maxvalue="100" minvalue="0"></attr>
+        <!-- 振幅 -->
+        <attr name="waveballamplitude" format="dimension"></attr>
+        <!-- 波长 -->
+        <attr name="waveballlength" format="dimension"></attr>
+        <!-- 波浪线条宽度 -->
+        <attr name="waveballlinewidth" format="dimension"></attr>
+    </declare-styleable>
+    <!-- 自定义sidebarview属性 -->
+    <declare-styleable name="sidebarview">
+
+        <!-- 布局背景正常颜色 -->
+        <attr name="sidebarviewbacknor" format="color"></attr>
+        <!-- 布局背景按下颜色 -->
+        <attr name="sidebarviewbackpre" format="color"></attr>
+        <!-- 文字正常颜色 -->
+        <attr name="sidebarviewtextnor" format="color"></attr>
+        <!-- 文字选中颜色 -->
+        <attr name="sidebarviewtextpre" format="color"></attr>
+    </declare-styleable>
+    <!-- 自定义numberpicker控件属性 -->
+    <attr name="numberPickerStyle" format="reference" />
+
+    <declare-styleable name="NumberPicker">
+
+        <!-- @hide Color for the solid color background if such for optimized rendering. -->
+        <attr name="solidColor" format="color|reference" />
+        <!-- @hide The divider for making the selection area. -->
+        <attr name="selectionDivider" format="reference" />
+        <!-- @hide The height of the selection divider. -->
+        <attr name="selectionDividerHeight" format="dimension" />
+        <!-- @hide The distance between the two selection dividers. -->
+        <attr name="selectionDividersDistance" format="dimension" />
+        <!-- @hide The min height of the NumberPicker. -->
+        <attr name="internalMinHeight" format="dimension" />
+        <!-- @hide The max height of the NumberPicker. -->
+        <attr name="internalMaxHeight" format="dimension" />
+        <!-- @hide The min width of the NumberPicker. -->
+        <attr name="internalMinWidth" format="dimension" />
+        <!-- @hide The max width of the NumberPicker. -->
+        <attr name="internalMaxWidth" format="dimension" />
+        <!-- @hide The layout of the number picker. -->
+        <attr name="internalLayout" format="reference" />
+        <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
+        <attr name="virtualButtonPressedDrawable" format="reference" />
+    </declare-styleable>
+    <!-- 自定义sview波浪属性 -->
+    <declare-styleable name="sineview">
+
+        <!-- 正弦线线条颜色 -->
+        <attr name="sinelinecolor" format="color"></attr>
+        <!-- 正弦线振幅 -->
+        <attr name="sineamplitude" format="dimension"></attr>
+        <!-- 正弦线波长 -->
+        <attr name="sinelength" format="dimension"></attr>
+        <!-- 正弦线线条宽度 -->
+        <attr name="sinelinewidth" format="dimension"></attr>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- 侧边栏打开后顶部留下的宽度 -->
+    <dimen name="setbehindOffsetres">70dp</dimen>
+    <!-- 注册页log距离顶部的边距 -->
+    <dimen name="activity_register_log_margintop">60dp</dimen>
+    <!-- 登录页log距离顶部的边距 -->
+    <dimen name="activity_login_log_margintop">60dp</dimen>
+
+</resources>
