@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-   <!-- App主题颜色 -->
+    <!-- App主题颜色 -->
     <color name="themecolor">#00B0F0</color>
     <!-- App页面通用背景色 -->
     <color name="themebackcolor">#EDEDED</color>
+    <!--欢迎页背景颜色-->
+    <color name="activity_welecom_back">#32A8B6</color>
 </resources>

@@ -22,6 +22,9 @@
         <item name="android:textSize">15dp</item>
         <item name="android:textColorPrimaryInverse">@android:color/primary_text_light</item>
     </style>
+    <style name="WelecomTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/activity_welecom_back</item>
+    </style>
     <!-- 自定义页面切换动画 -->
     <style name="AnimationActivity" mce_bogus="1" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/right_in</item>

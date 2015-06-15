@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical" >
-<com.bestbrand.hh.view.TitleBar
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"></com.bestbrand.hh.view.TitleBar>
+    android:orientation="vertical">
+
+    <com.bestbrand.hh.view.TitleBar
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
     <com.xxs.sdk.view.XExpandableView
         android:id="@+id/fragment_hh_frendlist"
         android:layout_width="match_parent"

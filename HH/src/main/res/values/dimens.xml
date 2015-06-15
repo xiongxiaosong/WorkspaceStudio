@@ -6,5 +6,17 @@
     <dimen name="activity_register_log_margintop">40dp</dimen>
     <!-- 登录页log距离顶部的边距 -->
     <dimen name="activity_login_log_margintop">40dp</dimen>
+    <!--超小字体大小-->
+    <dimen name="textsize_ssmall">10dp</dimen>
+    <!--小字体大小-->
+    <dimen name="textsize_small">12dp</dimen>
+    <!--正常字体大小-->
+    <dimen name="textsize_normal">15dp</dimen>
+    <!--大字体大小-->
+    <dimen name="textsize_large">18dp</dimen>
+    <!--特大字体大小-->
+    <dimen name="textsize_xlarge">20dp</dimen>
+    <!--超大字体大小-->
+    <dimen name="textsize_xxlarge">25dp</dimen>
 
 </resources>

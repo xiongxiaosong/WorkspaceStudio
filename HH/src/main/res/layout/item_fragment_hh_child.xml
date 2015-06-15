@@ -25,8 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:textColor="@color/heise"
-            android:textSize="15dp" />
+            android:textColor="@color/heise" />
 
         <TextView
             android:id="@+id/item_fragment_hh_child_phone"
@@ -34,7 +33,7 @@
             android:layout_height="wrap_content"
             android:padding="2dp"
             android:textColor="@color/huise"
-            android:textSize="12dp" />
+            android:textSize="@dimen/textsize_small" />
 
         <TextView
             android:id="@+id/item_fragment_hh_child_occupation"
@@ -42,7 +41,7 @@
             android:layout_height="wrap_content"
             android:padding="2dp"
             android:textColor="@color/huise"
-            android:textSize="12dp" />
+            android:textSize="@dimen/textsize_small" />
     </LinearLayout>
 
 </LinearLayout>
