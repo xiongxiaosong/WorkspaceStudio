@@ -18,28 +18,28 @@
 
     <declare-styleable name="SlidingMenu">
         <attr name="mode">
-            <enum name="left" value="0" />
-            <enum name="right" value="1" />
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
         </attr>
-        <attr name="viewAbove" format="reference" />
-        <attr name="viewBehind" format="reference" />
-        <attr name="behindOffset" format="dimension" />
-        <attr name="behindWidth" format="dimension" />
-        <attr name="behindScrollScale" format="float" />
+        <attr name="viewAbove" format="reference"/>
+        <attr name="viewBehind" format="reference"/>
+        <attr name="behindOffset" format="dimension"/>
+        <attr name="behindWidth" format="dimension"/>
+        <attr name="behindScrollScale" format="float"/>
         <attr name="touchModeAbove">
-            <enum name="margin" value="0" />
-            <enum name="fullscreen" value="1" />
+            <enum name="margin" value="0"/>
+            <enum name="fullscreen" value="1"/>
         </attr>
         <attr name="touchModeBehind">
-            <enum name="margin" value="0" />
-            <enum name="fullscreen" value="1" />
+            <enum name="margin" value="0"/>
+            <enum name="fullscreen" value="1"/>
         </attr>
-        <attr name="shadowDrawable" format="reference" />
-        <attr name="shadowWidth" format="dimension" />
-        <attr name="fadeEnabled" format="boolean" />
-        <attr name="fadeDegree" format="float" />
-        <attr name="selectorEnabled" format="boolean" />
-        <attr name="selectorDrawable" format="reference" />
+        <attr name="shadowDrawable" format="reference"/>
+        <attr name="shadowWidth" format="dimension"/>
+        <attr name="fadeEnabled" format="boolean"/>
+        <attr name="fadeDegree" format="float"/>
+        <attr name="selectorEnabled" format="boolean"/>
+        <attr name="selectorDrawable" format="reference"/>
     </declare-styleable>
     <declare-styleable name="swipelistviewstyle">
         <attr name="right_width" format="dimension"></attr>
@@ -48,9 +48,9 @@
     <declare-styleable name="roundedimageview">
 
         <!-- 圆周线条大小 -->
-        <attr name="border_thickness" format="dimension" />
+        <attr name="border_thickness" format="dimension"/>
         <!-- 内圆颜色 -->
-        <attr name="border_inside_color" format="color" />
+        <attr name="border_inside_color" format="color"/>
         <!-- 外圆颜色 -->
         <attr name="border_outside_color" format="color"></attr>
     </declare-styleable>
@@ -133,18 +133,18 @@
     <declare-styleable name="XWheelView">
 
         <!-- 文字颜色 -->
-        <attr name="xwheeltextcolor" format="color" />
+        <attr name="xwheeltextcolor" format="color"/>
         <attr name="xwheelmodle">
-            <enum name="normal" value="0" />
-            <enum name="left" value="1" />
-            <enum name="right" value="2" />
+            <enum name="normal" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
         </attr>
         <!-- 可见项数 -->
-        <attr name="xwheelvisibleitems" format="integer" />
+        <attr name="xwheelvisibleitems" format="integer"/>
         <!-- 是否循环滚动 -->
-        <attr name="xwheeliscircle" format="boolean" />
+        <attr name="xwheeliscircle" format="boolean"/>
         <!-- 文字大小 -->
-        <attr name="xwheeltextsize" format="dimension" />
+        <attr name="xwheeltextsize" format="dimension"/>
     </declare-styleable>
     <!-- 自定义三角函数控件属性 -->
     <declare-styleable name="XTrigonometricView">
@@ -273,30 +273,30 @@
         <attr name="sidebarviewtextpre" format="color"></attr>
     </declare-styleable>
     <!-- 自定义numberpicker控件属性 -->
-    <attr name="numberPickerStyle" format="reference" />
+    <attr name="numberPickerStyle" format="reference"/>
 
     <declare-styleable name="NumberPicker">
 
         <!-- @hide Color for the solid color background if such for optimized rendering. -->
-        <attr name="solidColor" format="color|reference" />
+        <attr name="solidColor" format="color|reference"/>
         <!-- @hide The divider for making the selection area. -->
-        <attr name="selectionDivider" format="reference" />
+        <attr name="selectionDivider" format="reference"/>
         <!-- @hide The height of the selection divider. -->
-        <attr name="selectionDividerHeight" format="dimension" />
+        <attr name="selectionDividerHeight" format="dimension"/>
         <!-- @hide The distance between the two selection dividers. -->
-        <attr name="selectionDividersDistance" format="dimension" />
+        <attr name="selectionDividersDistance" format="dimension"/>
         <!-- @hide The min height of the NumberPicker. -->
-        <attr name="internalMinHeight" format="dimension" />
+        <attr name="internalMinHeight" format="dimension"/>
         <!-- @hide The max height of the NumberPicker. -->
-        <attr name="internalMaxHeight" format="dimension" />
+        <attr name="internalMaxHeight" format="dimension"/>
         <!-- @hide The min width of the NumberPicker. -->
-        <attr name="internalMinWidth" format="dimension" />
+        <attr name="internalMinWidth" format="dimension"/>
         <!-- @hide The max width of the NumberPicker. -->
-        <attr name="internalMaxWidth" format="dimension" />
+        <attr name="internalMaxWidth" format="dimension"/>
         <!-- @hide The layout of the number picker. -->
-        <attr name="internalLayout" format="reference" />
+        <attr name="internalLayout" format="reference"/>
         <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
-        <attr name="virtualButtonPressedDrawable" format="reference" />
+        <attr name="virtualButtonPressedDrawable" format="reference"/>
     </declare-styleable>
     <!-- 自定义sview波浪属性 -->
     <declare-styleable name="sineview">
@@ -310,5 +310,20 @@
         <!-- 正弦线线条宽度 -->
         <attr name="sinelinewidth" format="dimension"></attr>
     </declare-styleable>
+    <!-- 自定义手势密码属性 -->
+    <declare-styleable name="GestureLock">
 
+        <!-- 手势密码圆圈正常图片 -->
+        <attr name="drawablenormal" format="reference"/>
+        <!-- 手势密码圆圈选中图片 -->
+        <attr name="drawableselected" format="reference"/>
+        <!-- 手势密码圆圈错误图片 -->
+        <attr name="drawableeerror" format="reference"/>
+        <!-- 手势轨迹线条正常颜色 -->
+        <attr name="linecolornormal" format="color"/>
+        <!-- 手势轨迹线条错误颜色 -->
+        <attr name="linecolorerror" format="color"/>
+        <!-- 手势轨迹线条宽度 -->
+        <attr name="linewidth" format="dimension"/>
+    </declare-styleable>
 </resources>
