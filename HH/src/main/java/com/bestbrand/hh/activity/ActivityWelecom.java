@@ -24,7 +24,7 @@ public class ActivityWelecom extends ActivityBase {
             public void run() {
                 // TODO Auto-generated method stub
                 Intent intent = new Intent(ActivityWelecom.this,
-                        ActivityLogin.class);
+                        ActivityGuide.class);
                 startActivity(intent);
                 finish();
             }

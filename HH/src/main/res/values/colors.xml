@@ -6,4 +6,8 @@
     <color name="themebackcolor">#EDEDED</color>
     <!--欢迎页背景颜色-->
     <color name="activity_welecom_back">#32A8B6</color>
+    <!--引导页登录按钮背景颜色-->
+    <color name="activity_guide_loginback">#00B6FF</color>
+    <!--引导页注册按钮背景颜色-->
+    <color name="activity_guide_registback">#CFE7FE</color>
 </resources>
