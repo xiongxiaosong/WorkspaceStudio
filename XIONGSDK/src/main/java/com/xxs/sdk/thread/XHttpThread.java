@@ -201,6 +201,7 @@ public class XHttpThread extends Thread {
 	/** 断开Http连接的方法 */
 	public void disConnectHttpMethod() throws Exception {
 		if (helper != null)
+            iscancled = true;
 			helper.disConnectHttp();
 	}
 
