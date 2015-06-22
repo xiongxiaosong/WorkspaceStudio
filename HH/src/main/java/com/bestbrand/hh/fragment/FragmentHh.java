@@ -98,7 +98,7 @@ public class FragmentHh extends FragmentBase implements OnGroupExpandListener,
 	}
 
 	private void init() {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 12; i++) {
 			BeanFragmentHhGroup bGroup = new BeanFragmentHhGroup();
 			bGroup.setGroupname("分组            "+i);
 			bGroup.setTotlefrend(20);
