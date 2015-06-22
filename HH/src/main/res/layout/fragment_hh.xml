@@ -9,13 +9,17 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent" />
 
-    <com.xxs.sdk.view.XExpandableView
-        android:id="@+id/fragment_hh_frendlist"
+    <com.xxs.sdk.ui.pull.PullToRefreshView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
-        android:fadingEdge="none"
-        android:listSelector="@color/cacheColorHint"
-        android:cacheColorHint="@color/cacheColorHint" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <com.xxs.sdk.view.XExpandableView
+            android:id="@+id/fragment_hh_frendlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:listSelector="@color/cacheColorHint"
+            android:cacheColorHint="@color/cacheColorHint" />
+    </com.xxs.sdk.ui.pull.PullToRefreshView>
 </LinearLayout>

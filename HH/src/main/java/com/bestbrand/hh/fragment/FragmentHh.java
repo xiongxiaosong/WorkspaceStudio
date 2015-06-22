@@ -69,6 +69,10 @@ public class FragmentHh extends FragmentBase implements OnGroupExpandListener,
 				.findViewById(R.id.fragment_hh_frendlist);
 		xExpandableView.setHeaderView(LayoutInflater.from(mActivity).inflate(
 				R.layout.item_fragment_hh_header, xExpandableView,false));
+        View headler = LayoutInflater.from(mActivity).inflate(R.layout.view_fragment_hh_header,null);
+        View footer = LayoutInflater.from(mActivity).inflate(R.layout.view_fragment_hh_header,null);
+        xExpandableView.addHeaderView(headler);
+        xExpandableView.addFooterView(footer);
 		xExpandableView.setOnChildClickListener(this);
 		xExpandableView.setOnGroupExpandListener(this);
 		xExpandableView.setOnGroupCollapseListener(this);
@@ -94,7 +98,7 @@ public class FragmentHh extends FragmentBase implements OnGroupExpandListener,
 	}
 
 	private void init() {
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 5; i++) {
 			BeanFragmentHhGroup bGroup = new BeanFragmentHhGroup();
 			bGroup.setGroupname("分组            "+i);
 			bGroup.setTotlefrend(20);

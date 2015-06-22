@@ -126,14 +126,16 @@ public class AdapterFragmentHh extends XExpandableViewAdapter {
 			int childPosition, int alpha) {
 		// TODO Auto-generated method stub
 //		super.setTreeHeaderState(header, groupPosition, childPosition, alpha);
-		TextView grouptitle = (TextView) header
-				.findViewById(R.id.item_fragment_hh_header_title);
-		TextView frendnumber = (TextView) header
-				.findViewById(R.id.item_fragment_hh_header_number);
-		BeanFragmentHhGroup bean = (BeanFragmentHhGroup) getGroup(groupPosition);
-		grouptitle.setText(bean.getGroupname());
-		frendnumber.setText(bean.getOnlinefrend() + "/"
-				+ bean.getTotlefrend());
+        if(groupPosition>=0 && groupPosition<groups.size()){
+            TextView grouptitle = (TextView) header
+                    .findViewById(R.id.item_fragment_hh_header_title);
+            TextView frendnumber = (TextView) header
+                    .findViewById(R.id.item_fragment_hh_header_number);
+            BeanFragmentHhGroup bean = (BeanFragmentHhGroup) getGroup(groupPosition);
+            grouptitle.setText(bean.getGroupname());
+            frendnumber.setText(bean.getOnlinefrend() + "/"
+                    + bean.getTotlefrend());
+        }
 	}
 
 	public static class ViewHolderGroup {
