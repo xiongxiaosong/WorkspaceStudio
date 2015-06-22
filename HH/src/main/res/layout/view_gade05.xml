@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/contentDescription"
+        android:src="@drawable/gade05_back" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/heise" />
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/gade_log_topmargin"
+        android:orientation="vertical">
+        |
+
+        <ImageView
+            android:contentDescription="@string/contentDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gade05_log" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="@color/baise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gade05_title" />
+        <TextView
+            android:textSize="@dimen/textsize_small"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/baise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gade05_message" />
+    </LinearLayout>
+
+</FrameLayout>

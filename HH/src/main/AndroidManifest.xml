@@ -86,6 +86,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:launchMode="singleTask"
             android:name="com.bestbrand.hh.activity.ActivityMain"
             android:screenOrientation="portrait" />
         <activity

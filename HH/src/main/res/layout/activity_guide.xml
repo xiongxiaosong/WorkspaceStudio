@@ -18,50 +18,77 @@
         android:layout_marginBottom="20dp">
 
         <RadioGroup
+            android:id="@+id/activity_guide_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkedButton="@+id/activity_guide_point01"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/activity_guide_point01"
+                android:clickable="false"
+                android:focusable="false"
                 android:layout_margin="2dp"
                 android:textSize="0dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/selector_guidepoint"
-                android:button="@null"
-                android:checked="true" />
-
-            <RadioButton
-                android:layout_margin="2dp"
-                android:textSize="0dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:background="@drawable/selector_guidepoint"
+                android:drawableLeft="@drawable/selector_guidepoint"
                 android:button="@null" />
 
             <RadioButton
+                android:id="@+id/activity_guide_point02"
+                android:clickable="false"
+                android:focusable="false"
                 android:layout_margin="2dp"
                 android:textSize="0dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/selector_guidepoint"
+                android:drawableLeft="@drawable/selector_guidepoint"
                 android:button="@null" />
 
             <RadioButton
+                android:id="@+id/activity_guide_point03"
+                android:clickable="false"
+                android:focusable="false"
                 android:layout_margin="2dp"
                 android:textSize="0dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/selector_guidepoint"
+                android:drawableLeft="@drawable/selector_guidepoint"
                 android:button="@null" />
 
             <RadioButton
+                android:id="@+id/activity_guide_point04"
+                android:clickable="false"
+                android:focusable="false"
                 android:layout_margin="2dp"
                 android:textSize="0dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:background="@drawable/selector_guidepoint"
+                android:drawableLeft="@drawable/selector_guidepoint"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/activity_guide_point05"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_margin="2dp"
+                android:textSize="0dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@drawable/selector_guidepoint"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/activity_guide_point06"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_margin="2dp"
+                android:textSize="0dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:drawableLeft="@drawable/selector_guidepoint"
                 android:button="@null" />
         </RadioGroup>
 
@@ -74,40 +101,45 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/activity_guide_register"
                 android:layout_margin="10dp"
+                android:id="@+id/activity_guide_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageButton
+                <ImageView
+                    android:contentDescription="@string/contentDescription"
                     android:alpha="0.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shap_guide_registerback" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/regist"
-                    android:textColor="@color/baise"/>
+                    android:textColor="@color/baise" />
             </FrameLayout>
+
             <FrameLayout
                 android:id="@+id/activity_guide_login"
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageButton
+                <ImageView
+                    android:contentDescription="@string/contentDescription"
                     android:alpha="0.2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shap_guide_loginback" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/login"
-                    android:textColor="@color/baise"/>
+                    android:textColor="@color/baise" />
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>

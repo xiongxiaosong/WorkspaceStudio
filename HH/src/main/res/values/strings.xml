@@ -26,5 +26,16 @@
     <!-- =================注册================ -->
     <string name="get_now">立即拥有</string>
     <string name="hasget_hh">已经拥有互互</string>
-
+    <!-- =================引导页================ -->
+    <string name="gade01_title">互享&#160;●&#160;互联&#160;●&#160;互生</string>
+    <string name="gade02_title">个人名片</string>
+    <string name="gade02_message">(淘汰纸质名片,轻松获取人脉)</string>
+    <string name="gade03_title">同步更新</string>
+    <string name="gade03_message">(再也不用给每个人发新的手机号了)</string>
+    <string name="gade04_title">管理人脉</string>
+    <string name="gade04_message">(发现机遇,永不丢失)</string>
+    <string name="gade05_title">档案印记</string>
+    <string name="gade05_message">(职业品牌化,淘汰纸质简历)</string>
+    <string name="gade06_title">商职印记</string>
+    <string name="gade06_message">(商场人生,职场人生)</string>
 </resources>

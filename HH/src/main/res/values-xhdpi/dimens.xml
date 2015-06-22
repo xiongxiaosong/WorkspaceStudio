@@ -6,5 +6,6 @@
     <dimen name="activity_register_log_margintop">50dp</dimen>
     <!-- 登录页log距离顶部的边距 -->
     <dimen name="activity_login_log_margintop">50dp</dimen>
-
+    <!--引导页距离顶部边距-->
+    <dimen name="gade_log_topmargin">120dp</dimen>
 </resources>

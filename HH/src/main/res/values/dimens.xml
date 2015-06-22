@@ -18,5 +18,7 @@
     <dimen name="textsize_xlarge">20dp</dimen>
     <!--超大字体大小-->
     <dimen name="textsize_xxlarge">25dp</dimen>
+    <!--引导页距离顶部边距-->
+    <dimen name="gade_log_topmargin">100dp</dimen>
 
 </resources>
