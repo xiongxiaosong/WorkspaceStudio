@@ -80,6 +80,7 @@ public class XHttpThread extends Thread {
 					if (inputStream != null) {
 						String result = TransformUtil
 								.inputstream2String(inputStream);
+						LogUtil.e(LOG_TAG + "Http请求返回数据", "" + result);
 						msg.what = 4;
 						msg.obj = result;
 						handler.sendMessage(msg);

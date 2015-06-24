@@ -128,7 +128,6 @@ public class XGuestureLock extends ViewGroup {
         setCustomAttributes(attrs);// 调用初始化
         initMethod();// 调用初始化的方法
         addChildMethod();// 调用添加子View的方法
-        arrayGuestInfo = new ArrayList<XGuestLockInfo>();
         arrayChoosed = new ArrayList<XGuestLockInfo>();
     }
 
@@ -213,6 +212,7 @@ public class XGuestureLock extends ViewGroup {
         layheight = b - t;
         float onewidth = laywidth / 3;
         float oneheight = layheight / 3;
+        arrayGuestInfo = new ArrayList<XGuestLockInfo>();
         for (int i = 0; i < getChildCount(); i++) {
             ImageView mView = (ImageView) getChildAt(i);
             float w = mView.getMeasuredWidth();// 获取View的宽度
@@ -574,7 +574,7 @@ public class XGuestureLock extends ViewGroup {
     /**
      * 清空绘制状态的方法
      */
-    private void clearMethod() {
+    public void clearMethod() {
         isError = false;
         arrayChoosed.clear();
         for (XGuestLockInfo info : arrayGuestInfo) {
