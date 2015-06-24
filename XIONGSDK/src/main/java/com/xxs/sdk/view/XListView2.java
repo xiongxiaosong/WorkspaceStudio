@@ -105,9 +105,9 @@ public class XListView2 extends ListView implements OnScrollListener {
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			/* 当前模式不允许滑动，则直接返回，交给ListView自身去处理 */
-			if (hScrollMode == HSCROLL_NOT_ALLOW) {
-				return super.onTouchEvent(ev);
-			}
+//			if (hScrollMode == HSCROLL_NOT_ALLOW) {
+//				return super.onTouchEvent(ev);
+//			}
 			if (ishscrolled) {
 				scrollBack();
 				return false;
