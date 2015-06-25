@@ -1,5 +1,7 @@
 package com.xxs.sdk.util;
 
+import android.text.TextUtils;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +32,9 @@ public class TransformUtil {
 	 * @return 转换后得到的16进制编码
 	 */
 	public static String encodeStringToHex(String string) {
+		if(TextUtils.isEmpty(string)){
+			return null;
+		}
 		// 根据默认编码获取字节数组
 		byte[] bytes = string.getBytes();
 		StringBuilder sb = new StringBuilder(bytes.length * 2);
@@ -49,6 +54,9 @@ public class TransformUtil {
 	 * @return 转换后得到的字符串
 	 */
 	public static String decodeHexToString(String string) {
+		if(TextUtils.isEmpty(string)){
+			return null;
+		}
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(
 				string.length() / 2);
 		// 将每2位16进制整数组装成一个字节
