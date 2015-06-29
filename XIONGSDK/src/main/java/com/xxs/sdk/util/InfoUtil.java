@@ -1,27 +1,8 @@
 package com.xxs.sdk.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.security.MessageDigest;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
+import android.app.ActivityManager.RunningTaskInfo;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -43,6 +24,27 @@ import android.text.TextUtils;
 import android.text.format.Formatter;
 
 import com.xxs.sdk.app.AppContext;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.security.MessageDigest;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Locale;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 获取信息的工具类
@@ -73,7 +75,35 @@ public class InfoUtil {
 		}
 		return statusBarHeight;
 	}
+	/**得到运行在最上层App的包名*/
+	@SuppressWarnings("deprecation")
+	public static String getTopAppName() {
+		ActivityManager mActivityManager = (ActivityManager) AppContext.mMainContext
+				.getSystemService(Context.ACTIVITY_SERVICE);
+		List<RunningTaskInfo> rti = mActivityManager.getRunningTasks(1);
+		return rti.get(0).topActivity.getPackageName();
+	}
+	/**
+	 * 获取安装应用包名
+	 *
+	 */
+	public static final String getPackageName() {
+		String version = "";
+		PackageManager pm = AppContext.mMainContext.getPackageManager();
+		PackageInfo info;
+		try {
+			info = pm.getPackageInfo(AppContext.mMainContext.getPackageName(),
+					0);
+			if (info != null) {
+				version = String.valueOf(info.packageName);
+			}
+		} catch (Exception e) {
+			LogUtil.e(LOG_TAG, e);
+			e.printStackTrace();
+		}
 
+		return version;
+	}
 	/**
 	 * 获取安装应用版本名
 	 *
