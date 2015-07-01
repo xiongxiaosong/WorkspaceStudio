@@ -1,5 +1,6 @@
 package com.xxs.sdk.http;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -29,7 +30,7 @@ public class HttpHelper {
 	private static String LOG_TAG = HttpHelper.class.getName();
 	private static final int TIMEOUT = 5000;
 	private HttpURLConnection httpUrlConn;
-
+	private final int NET_BUFFER_SIZE = 512;
 	/**
 	 * 发送get方式请求
 	 * 
@@ -89,8 +90,10 @@ public class HttpHelper {
 			httpCon.setDoOutput(false);
 			httpCon.setDoInput(true);
 			httpCon.setConnectTimeout(TIMEOUT);
+			httpCon.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded;charset=utf-8");
 		} else {
-			byte[] entitydata = sb.toString().getBytes();
+			byte[] entitydata = sb.toString().getBytes("UTF-8");
 			URL url = new URL(path);
 			httpCon = (HttpURLConnection) url.openConnection();
 			httpCon.setRequestMethod("POST");
@@ -101,9 +104,16 @@ public class HttpHelper {
 			httpCon.setRequestProperty("Content-Type",
 					"application/x-www-form-urlencoded;charset=utf-8");
 			OutputStream outs = httpCon.getOutputStream();
-			outs.write(entitydata);
-			outs.flush();
+			ByteArrayInputStream bin = new ByteArrayInputStream(entitydata);
+			byte buffer[] = new byte[NET_BUFFER_SIZE];
+			int  len = 0;
+			while ((len = bin.read(buffer, 0, NET_BUFFER_SIZE)) != -1) {
+				outs.write(buffer, 0, len);
+				outs.flush();
+			}
 			outs.close();
+			bin.close();
+
 		}
 		return httpCon;
 	}

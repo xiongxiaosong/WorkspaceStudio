@@ -326,4 +326,28 @@
         <!-- 手势轨迹线条宽度 -->
         <attr name="linewidth" format="dimension"/>
     </declare-styleable>
+    <!-- 自定义密码控件属性 -->
+    <declare-styleable name="gridPasswordView">
+        <!-- 文字颜色 -->
+        <attr name="textColor" format="color|reference" />
+        <!-- 文字大小 -->
+        <attr name="textSize" format="dimension" />
+        <!-- 线条颜色 -->
+        <attr name="lineColor" format="color" />
+        <!-- gridColor颜色 -->
+        <attr name="gridColor" format="color" />
+        <!-- 线条宽度 -->
+        <attr name="lineWidth" format="dimension" />
+        <!-- 密码长度 -->
+        <attr name="passwordLength" format="integer" />
+        <!-- 显示密码字符串效果，默认为小黑点 -->
+        <attr name="passwordTransformation" format="string" />
+        <!-- 密码输入字符串类型 -->
+        <attr name="passwordType" format="enum">
+            <enum name="numberPassword" value="0" />
+            <enum name="textPassword" value="1" />
+            <enum name="textVisiblePassword" value="2" />
+            <enum name="textWebPassword" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>
