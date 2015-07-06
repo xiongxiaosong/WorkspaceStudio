@@ -2,6 +2,7 @@
 <resources>
     <!-- App主题颜色 -->
     <color name="themecolor">#00B0F0</color>
+    <color name="themecolor2">#0090F0</color>
     <!-- App页面通用背景色 -->
     <color name="themebackcolor">#EDEDED</color>
     <!--欢迎页背景颜色-->

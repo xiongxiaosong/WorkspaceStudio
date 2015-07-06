@@ -8,4 +8,6 @@
     <dimen name="activity_login_log_margintop">60dp</dimen>
     <!--引导页距离顶部边距-->
     <dimen name="gade_log_topmargin">140dp</dimen>
+    <!--登录页面log距离顶部边距-->
+    <dimen name="loging_log_topmarging">70dp</dimen>
 </resources>
