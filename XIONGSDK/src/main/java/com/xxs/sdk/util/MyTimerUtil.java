@@ -1,6 +1,5 @@
 package com.xxs.sdk.util;
 
-import android.os.CountDownTimer;
 
 import com.xxs.sdk.myinterface.MyTimerInterCallback;
 
@@ -18,11 +17,13 @@ public class MyTimerUtil extends CountDownTimer {
 	/**
 	 * 构造函数
 	 * 
+	 * @param context
+	 *            上下文
 	 * @param millisInFuture
 	 *            倒计时间总数（单位毫秒）
 	 * @param countDownInterval
 	 *            每次计时间隔时间（单位毫秒）
-	 * @param callback
+	 * @param myInterFace
 	 *            自定义计时器回调接口
 	 */
 	public MyTimerUtil(long millisInFuture, long countDownInterval,
