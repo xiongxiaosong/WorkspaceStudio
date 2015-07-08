@@ -72,7 +72,7 @@ public class GridPasswordView extends LinearLayout implements PasswordView {
 
     public GridPasswordView(Context context, AttributeSet attrs,
                             int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context, attrs);
         initAttrs(context, attrs, defStyleAttr);
         initViews(context);
     }
@@ -120,7 +120,7 @@ public class GridPasswordView extends LinearLayout implements PasswordView {
 
     private void initViews(Context context) {
         super.setBackgroundDrawable(outerLineDrawable);
-        setShowDividers(SHOW_DIVIDER_NONE);
+//        setShowDividers(SHOW_DIVIDER_NONE);
         setOrientation(HORIZONTAL);
 
         transformationMethod = new CustomPasswordTransformationMethod(
