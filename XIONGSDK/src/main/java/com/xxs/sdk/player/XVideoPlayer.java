@@ -22,7 +22,7 @@ import com.xxs.sdk.myinterface.XPlayerCallBack;
 
 /**
  * 自定义网络视频播放器工具类
- * 
+ *
  * @author xiongxs
  * @date 2015-05-25
  */
@@ -36,6 +36,8 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	private XPlayerCallBack xPlayerCallBack;
 	/** 当前播放时间 */
 	private int currentposition;
+	/***/
+	private int lastposition;
 	/** 用于加载视频的控件 */
 	private SurfaceHolder surfaceHolder;
 	/** 是否已经播放 */
@@ -45,13 +47,7 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 
 	/** 构造函数进行必要的初始化工作 */
 	public XVideoPlayer(SurfaceView surfaceView) {
-		mediaPlayer = new MediaPlayer();
-		mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-		mediaPlayer.setOnPreparedListener(this);
-		mediaPlayer.setOnCompletionListener(this);
-		mediaPlayer.setOnBufferingUpdateListener(this);
-		mediaPlayer.setOnErrorListener(this);
-		mediaPlayer.setOnInfoListener(this);
+		initMediaPlayer();
 		LayoutParams lp = surfaceView.getLayoutParams();
 		surfaceView.setLayoutParams(lp);
 		surfaceHolder = surfaceView.getHolder();
@@ -60,13 +56,30 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 		surfaceHolder.setKeepScreenOn(true);
 	}
 
+	private void initMediaPlayer() {
+		mediaPlayer = new MediaPlayer();
+		mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+		mediaPlayer.setOnPreparedListener(this);
+		mediaPlayer.setOnCompletionListener(this);
+		mediaPlayer.setOnBufferingUpdateListener(this);
+		mediaPlayer.setOnErrorListener(this);
+		mediaPlayer.setOnInfoListener(this);
+	}
+
 	/**
 	 * 播放视频的方法
-	 * 
+	 *
 	 * @param url
 	 *            网络视频地址
 	 */
 	public void playVideo(String url) {
+		if (mediaPlayer == null) {
+			isplaying = false;
+			initMediaPlayer();
+			if (!url.equals(videourl)){
+				lastposition = 0;
+			}
+		}
 		if (url.equals(videourl) && isplaying) {
 			mediaPlayer.seekTo(currentposition);
 			mediaPlayer.start();
@@ -97,14 +110,14 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	private Handler myHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				xPlayerCallBack.onLoadFalse(1);
-				break;
-			case 1:
-				xPlayerCallBack.onPlayType(4);
-				break;
-			default:
-				break;
+				case 0:
+					xPlayerCallBack.onLoadFalse(1);
+					break;
+				case 1:
+					xPlayerCallBack.onPlayType(4);
+					break;
+				default:
+					break;
 			}
 		}
 	};
@@ -121,6 +134,7 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	/** 暂停播放的方法 */
 	public void pauseVideo() {
 		if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+			lastposition = mediaPlayer.getCurrentPosition();
 			mediaPlayer.pause();
 			xPlayerCallBack.onPlayType(1);
 			surfaceHolder.setKeepScreenOn(false);
@@ -138,7 +152,7 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 
 	/**
 	 * 关闭或打开声音的方法
-	 * 
+	 *
 	 * @param isOpen
 	 *            true 打开 false 关闭
 	 */
@@ -187,6 +201,7 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	public void onPrepared(MediaPlayer mp) {
 		// TODO Auto-generated method stub
 		isplaying = true;
+		mediaPlayer.seekTo(lastposition);
 		mediaPlayer.start();
 		xPlayerCallBack.onPlayType(0);
 	}
@@ -200,7 +215,7 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
-			int height) {
+							   int height) {
 		// TODO Auto-generated method stub
 
 	}
@@ -210,9 +225,10 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 		// TODO Auto-generated method stub
 		if (mediaPlayer != null) {
 			if (mediaPlayer.isPlaying()) {
-				mediaPlayer.stop();
+				mediaPlayer.pause();
 			}
 			mediaPlayer.release();
+			mediaPlayer = null;
 		}
 	}
 
@@ -225,25 +241,25 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	public boolean onError(MediaPlayer mp, int what, int extra) {
 		// TODO Auto-generated method stub
 		switch (what) {
-		case MediaPlayer.MEDIA_ERROR_IO:
-			xPlayerCallBack.onLoadFalse(1);
-			break;
-		case MediaPlayer.MEDIA_ERROR_TIMED_OUT:
-			xPlayerCallBack.onLoadFalse(2);
-			break;
-		case MediaPlayer.MEDIA_ERROR_UNSUPPORTED:
-			xPlayerCallBack.onLoadFalse(3);
-			break;
-		case MediaPlayer.MEDIA_ERROR_UNKNOWN:
-			xPlayerCallBack.onLoadFalse(4);
-			break;
-		case MediaPlayer.MEDIA_ERROR_MALFORMED:
-			xPlayerCallBack.onLoadFalse(4);
-			break;
-			
-		default:
-			xPlayerCallBack.onLoadFalse(4);
-			break;
+			case MediaPlayer.MEDIA_ERROR_IO:
+				xPlayerCallBack.onLoadFalse(1);
+				break;
+			case MediaPlayer.MEDIA_ERROR_TIMED_OUT:
+				xPlayerCallBack.onLoadFalse(2);
+				break;
+			case MediaPlayer.MEDIA_ERROR_UNSUPPORTED:
+				xPlayerCallBack.onLoadFalse(3);
+				break;
+			case MediaPlayer.MEDIA_ERROR_UNKNOWN:
+				xPlayerCallBack.onLoadFalse(4);
+				break;
+			case MediaPlayer.MEDIA_ERROR_MALFORMED:
+				xPlayerCallBack.onLoadFalse(4);
+				break;
+
+			default:
+				xPlayerCallBack.onLoadFalse(4);
+				break;
 		}
 		return false;
 	}
@@ -252,17 +268,17 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	public boolean onInfo(MediaPlayer mp, int what, int extra) {
 		// TODO Auto-generated method stub
 		switch (what) {
-		case MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:// 开始播放
-			xPlayerCallBack.onPlayType(0);
-			break;
-		case MediaPlayer.MEDIA_INFO_BUFFERING_END:// 缓冲完毕
-			xPlayerCallBack.onPlayType(0);
-			break;
-		case MediaPlayer.MEDIA_INFO_BUFFERING_START:// 开始缓冲
-			xPlayerCallBack.onPlayType(4);
-			break;
-		default:
-			break;
+			case MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:// 开始播放
+				xPlayerCallBack.onPlayType(0);
+				break;
+			case MediaPlayer.MEDIA_INFO_BUFFERING_END:// 缓冲完毕
+				xPlayerCallBack.onPlayType(0);
+				break;
+			case MediaPlayer.MEDIA_INFO_BUFFERING_START:// 开始缓冲
+				xPlayerCallBack.onPlayType(4);
+				break;
+			default:
+				break;
 		}
 		return false;
 	}
