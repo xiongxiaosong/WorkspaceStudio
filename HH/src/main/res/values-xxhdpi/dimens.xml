@@ -10,4 +10,6 @@
     <dimen name="gade_log_topmargin">140dp</dimen>
     <!--登录页面log距离顶部边距-->
     <dimen name="loging_log_topmarging">70dp</dimen>
+    <!--注册页面log距离顶部边距-->
+    <dimen name="register_log_topmarging">20dp</dimen>
 </resources>

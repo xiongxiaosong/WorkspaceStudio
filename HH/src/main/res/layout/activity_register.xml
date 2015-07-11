@@ -1,66 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/login_back"
+    android:orientation="vertical">
 
     <com.bestbrand.hh.view.TitleBar
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:leftDrawable="@drawable/arrow_left"
-        app:titleText="@string/regist" >
-    </com.bestbrand.hh.view.TitleBar>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
-        android:orientation="vertical"
-        android:padding="5dp" >
+        app:titleText="@string/regist"></com.bestbrand.hh.view.TitleBar>
 
-        <LinearLayout
+    <ImageView
+        android:id="@+id/activity_register_log"
+        android:layout_below="@+id/titlebar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/contentDescription"
+        android:src="@drawable/icon_log_loging"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/register_log_topmarging" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/register_log_topmarging"
+        android:layout_below="@+id/activity_register_log"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:hint="@string/hint_register_phonenumber"
+            android:textColorHint="@color/qianhuise"
+            android:textSize="@dimen/textsize_large"
+            android:textColor="@color/baise"
+            android:id="@+id/activity_register_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:padding="8dp"
+            android:imeOptions="actionNext"
+            android:background="@drawable/edittext_loging_back" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/activity_register_log_margintop"
-                android:contentDescription="@string/contentDescription"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher" />
+        <EditText
+            android:hint="@string/hint_register_password"
+            android:textColorHint="@color/qianhuise"
+            android:imeOptions="actionDone"
+            android:textSize="@dimen/textsize_large"
+            android:textColor="@color/baise"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@drawable/edittext_loging_back"
+            android:inputType="textPassword"
+            android:id="@+id/activity_register_password"
+            android:layout_width="match_parent" />
+
+        <EditText
+            android:hint="@string/hint_register_password_ensure"
+            android:textColorHint="@color/qianhuise"
+            android:imeOptions="actionDone"
+            android:textSize="@dimen/textsize_large"
+            android:textColor="@color/baise"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@drawable/edittext_loging_back"
+            android:inputType="textPassword"
+            android:id="@+id/activity_register_password_ensure"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/activity_register_telephone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:imeOptions="actionNext"
-                android:inputType="phone" />
-
-            <EditText
-                android:id="@+id/activity_register_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="textPassword" />
-
-            <EditText
-                android:id="@+id/activity_register_provenumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:hint="@string/hint_register_provenumber"
+                android:textColorHint="@color/qianhuise"
                 android:imeOptions="actionDone"
-                android:inputType="number" />
-
-            <Button
-                android:id="@+id/activity_register_register"
-                android:layout_width="match_parent"
+                android:textSize="@dimen/textsize_large"
+                android:textColor="@color/baise"
+                android:layout_weight="2.0"
                 android:layout_height="wrap_content"
-                android:text="@string/get_now" />
+                android:padding="8dp"
+                android:background="@drawable/edittext_loging_back"
+                android:inputType="textPassword"
+                android:id="@+id/activity_register_provenumber"
+                android:layout_width="0dp" />
         </LinearLayout>
-    </ScrollView>
 
-</LinearLayout>
+        <Button
+            android:textColor="@color/baise"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selecter_themecolor_circlr_button"
+            android:text="@string/get_now"
+            android:id="@+id/activity_register_getnow"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</RelativeLayout>

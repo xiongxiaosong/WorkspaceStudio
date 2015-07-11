@@ -30,6 +30,10 @@ public class ActivityRegist extends ActivityBase {
      */
     private EditText editPassword;
     /**
+     * 密码确认输入框
+     */
+    private EditText editPasswordEnsure;
+    /**
      * 验证码输入框
      */
     private EditText editProvenumber;
@@ -56,10 +60,11 @@ public class ActivityRegist extends ActivityBase {
     private void findViewMethod() {
         // 实例化控件
         mTitleBar = (TitleBar) findViewById(R.id.titlebar);
-        editTelephone = (EditText) findViewById(R.id.activity_register_telephone);
+        editTelephone = (EditText) findViewById(R.id.activity_register_username);
         editPassword = (EditText) findViewById(R.id.activity_register_password);
+        editPasswordEnsure = (EditText) findViewById(R.id.activity_register_password_ensure);
         editProvenumber = (EditText) findViewById(R.id.activity_register_provenumber);
-        buttonRegister = (Button) findViewById(R.id.activity_register_register);
+        buttonRegister = (Button) findViewById(R.id.activity_register_getnow);
         // 绑定监听事件
         buttonRegister.setOnClickListener(this);
         mTitleBar.setleftClickListener(this);
@@ -73,7 +78,7 @@ public class ActivityRegist extends ActivityBase {
             case R.id.title_left_btn:// 返回
                 turnToLogin();//调用跳转到登录页面的方法
                 break;
-            case R.id.activity_register_register:// 注册
+            case R.id.activity_register_getnow:// 注册
                 registerMethod();// 调用注册方法
                 break;
 

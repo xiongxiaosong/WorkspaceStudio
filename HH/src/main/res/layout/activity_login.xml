@@ -21,20 +21,29 @@
         android:orientation="vertical">
 
         <EditText
+            android:textSize="@dimen/textsize_large"
+            android:textColor="@color/baise"
             android:id="@+id/activity_login_username"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:imeOptions="actionNext"
             android:background="@drawable/edittext_loging_back" />
 
         <EditText
+            android:imeOptions="actionDone"
+            android:textSize="@dimen/textsize_large"
+            android:textColor="@color/baise"
             android:layout_marginTop="10dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
             android:background="@drawable/edittext_loging_back"
             android:inputType="textPassword"
             android:id="@+id/activity_login_password"
             android:layout_width="match_parent" />
 
         <Button
+            android:textColor="@color/baise"
             android:layout_marginTop="10dp"
             android:background="@drawable/selecter_themecolor_circlr_button"
             android:text="@string/login"
