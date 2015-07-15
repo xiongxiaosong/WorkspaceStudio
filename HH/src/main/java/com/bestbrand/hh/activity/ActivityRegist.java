@@ -2,6 +2,7 @@ package com.bestbrand.hh.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,8 @@ import com.bestbrand.hh.R;
 import com.bestbrand.hh.http.HttpClintClass;
 import com.bestbrand.hh.view.TitleBar;
 import com.xxs.sdk.manage.XActivityManager;
+import com.xxs.sdk.util.ProveUtil;
+import com.xxs.sdk.util.UiUtil;
 
 /**
  * 用户注册
@@ -79,12 +82,41 @@ public class ActivityRegist extends ActivityBase {
                 turnToLogin();//调用跳转到登录页面的方法
                 break;
             case R.id.activity_register_getnow:// 注册
-                registerMethod();// 调用注册方法
+                if(proveInputTypeMethod()){
+                    registerMethod();// 调用注册方法
+                }
                 break;
 
             default:
                 break;
         }
+    }
+
+    /**
+     * 验证输入信息格式是否正确的方法
+     */
+    private boolean proveInputTypeMethod() {
+        if (TextUtils.isEmpty(editTelephone.getText().toString().trim())) {
+            UiUtil.setErrorMethod(editTelephone,getString(R.string.please_input_telephone));
+            return false;
+        }
+        if (TextUtils.isEmpty(editPassword.getText().toString().trim())) {
+            UiUtil.setErrorMethod(editPassword,getString(R.string.please_input_password));
+            return false;
+        }
+        if (TextUtils.isEmpty(editPasswordEnsure.getText().toString().trim())) {
+            UiUtil.setErrorMethod(editPasswordEnsure,getString(R.string.please_input_password_ensure));
+            return false;
+        }
+        if (TextUtils.isEmpty(editProvenumber.getText().toString().trim())) {
+            UiUtil.setErrorMethod(editProvenumber,getString(R.string.please_input_provenumber));
+            return false;
+        }
+        if(!ProveUtil.isMobile(editTelephone.getText().toString().trim())){
+            UiUtil.setErrorMethod(editProvenumber,getString(R.string.error_telephone_type));
+            return false;
+        }
+        return true;
     }
 
     @Override

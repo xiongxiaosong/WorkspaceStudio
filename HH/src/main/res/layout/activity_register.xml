@@ -35,18 +35,19 @@
             android:hint="@string/hint_register_phonenumber"
             android:textColorHint="@color/qianhuise"
             android:textSize="@dimen/textsize_large"
+            android:imeOptions="actionNext"
             android:textColor="@color/baise"
             android:id="@+id/activity_register_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:imeOptions="actionNext"
+            android:inputType="phone"
             android:background="@drawable/edittext_loging_back" />
 
         <EditText
             android:hint="@string/hint_register_password"
             android:textColorHint="@color/qianhuise"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionNext"
             android:textSize="@dimen/textsize_large"
             android:textColor="@color/baise"
             android:layout_marginTop="10dp"
@@ -60,7 +61,7 @@
         <EditText
             android:hint="@string/hint_register_password_ensure"
             android:textColorHint="@color/qianhuise"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionNext"
             android:textSize="@dimen/textsize_large"
             android:textColor="@color/baise"
             android:layout_marginTop="10dp"
@@ -87,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:background="@drawable/edittext_loging_back"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:id="@+id/activity_register_provenumber"
                 android:layout_width="0dp" />
         </LinearLayout>

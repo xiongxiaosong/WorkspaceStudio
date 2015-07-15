@@ -36,7 +36,7 @@ public class XVideoPlayer implements OnPreparedListener, OnCompletionListener,
 	private XPlayerCallBack xPlayerCallBack;
 	/** 当前播放时间 */
 	private int currentposition;
-	/***/
+	/**调用暂停方法是的当前播放时间*/
 	private int lastposition;
 	/** 用于加载视频的控件 */
 	private SurfaceHolder surfaceHolder;

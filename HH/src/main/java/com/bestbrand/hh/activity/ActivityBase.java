@@ -81,13 +81,6 @@ public class ActivityBase extends FragmentActivity implements OnClickListener,
         XActivityManager.removeOneActivity(this);
     }
 
-    /**
-     * 设置错误提示的方法
-     */
-    protected void setErrorMethod(TextView view, String error) {
-        view.setError(Html.fromHtml("<font color=#FFFFFF>" + error + "</font>"));
-    }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
