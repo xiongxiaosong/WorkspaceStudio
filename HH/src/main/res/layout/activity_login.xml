@@ -1,77 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/login_back"
-    android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_back"
+                android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/contentDescription"
-        android:src="@drawable/icon_log_loging"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/loging_log_topmarging" />
+        android:layout_marginTop="@dimen/loging_log_topmarging"
+        android:contentDescription="@string/contentDescription"
+        android:src="@drawable/icon_log_loging"/>
 
     <LinearLayout
-        android:padding="10dp"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <EditText
-            android:textSize="@dimen/textsize_large"
-            android:textColor="@color/baise"
+            android:inputType="textVisiblePassword"
             android:id="@+id/activity_login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:background="@drawable/edittext_loging_back"
             android:imeOptions="actionNext"
-            android:background="@drawable/edittext_loging_back" />
+            android:padding="8dp"
+            android:textColor="@color/baise"
+            android:textSize="@dimen/textsize_large"/>
 
         <EditText
-            android:imeOptions="actionDone"
-            android:textSize="@dimen/textsize_large"
-            android:textColor="@color/baise"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="@drawable/edittext_loging_back"
-            android:inputType="textPassword"
             android:id="@+id/activity_login_password"
-            android:layout_width="match_parent" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_loging_back"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textColor="@color/baise"
+            android:textSize="@dimen/textsize_large"/>
 
         <Button
-            android:textColor="@color/baise"
+            android:id="@+id/activity_login_login"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selecter_themecolor_circlr_button"
             android:text="@string/login"
-            android:id="@+id/activity_login_login"
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:textColor="@color/baise"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:textColor="@color/baise"
-                android:layout_marginTop="20dp"
-                android:text="@string/regist"
-                android:layout_alignParentLeft="true"
                 android:id="@+id/activity_login_regist"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/regist"
+                android:textColor="@color/baise"/>
 
             <TextView
-                android:textColor="@color/baise"
+                android:id="@+id/activity_login_frogotpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="20dp"
                 android:text="@string/forgotpassword"
-                android:id="@+id/activity_login_frogotpassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="@color/baise"/>
         </RelativeLayout>
 
     </LinearLayout>

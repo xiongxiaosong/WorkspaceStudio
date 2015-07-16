@@ -39,7 +39,8 @@
     <string name="hint_register_password">登录密码</string>
     <string name="hint_register_password_ensure">确认密码</string>
     <string name="hint_register_provenumber">手机验证码</string>
-    <string name="hint_register_provenumber_get">获取验证码</string>
+    <string name="string_register_provenumber_get">获取验证码</string>
+    <string name="string_register_provenumber_getagain">重新获取</string>
     <!-- =================引导页================ -->
     <string name="gade01_title">互享&#160;●&#160;互联&#160;●&#160;互生</string>
     <string name="gade02_title">个人名片</string>
