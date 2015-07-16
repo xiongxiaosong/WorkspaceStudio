@@ -225,8 +225,14 @@ public class ActivityRegist extends ActivityBase implements MyTimerInterCallback
 
     @Override
     public void timerFinish() {
-        myTimer.cancel();
+        myTimer.onCancle();
         progressmessage.setText(getString(R.string.string_register_provenumber_getagain));
         progressBar.setProgress(0);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        myTimer.onCancle();
     }
 }

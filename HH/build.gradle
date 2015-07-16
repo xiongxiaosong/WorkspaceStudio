@@ -20,7 +20,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':XIONGSDK')
     compile files('libs/easemobchat_2.1.8.jar')
+    compile files('libs/MobTools.jar')
+    compile files('libs/SMSSDK-1.2.2.jar')
 }
