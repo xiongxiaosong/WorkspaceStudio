@@ -8,10 +8,12 @@ package com.bestbrand.hh.util;
  */
 public class UtilServer {
 	/**网络请求根地址*/
-//	public final static String ROOTURL = "http://192.168.0.104:8080/api";
+//	public final static String ROOTURL = "http://192.168.10.125:8080/api";
 	/**外网请求根地址*/
-	public final static String ROOTURL = "http://huhu.aliapp.com/api";
-	/**用户登录接口*/
+//	public final static String ROOTURL = "http://huhu.aliapp.com/api";
+	public final static String ROOTURL = "http://huhu.tunnel.mobi/api";
+
+    /**用户登录接口*/
 	public static final String LOGINUSER = ROOTURL+"/clientUser/loginUsers";
 	/**用户注册接口*/
 	public static final String REGISTERUSER = ROOTURL+"/clientUser/registeredUsers";
