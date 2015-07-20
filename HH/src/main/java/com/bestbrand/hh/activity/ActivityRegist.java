@@ -20,6 +20,8 @@ import com.xxs.sdk.util.MyTimerUtil;
 import com.xxs.sdk.util.ProveUtil;
 import com.xxs.sdk.util.UiUtil;
 
+import cn.smssdk.SMSSDK;
+
 /**
  * 用户注册
  *
