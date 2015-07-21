@@ -140,9 +140,9 @@ public class ActivityLogin extends ActivityBase {
     }
 
     @Override
-    public void failExecuteHttp(String threadId, int code, Exception e) {
-        super.failExecuteHttp(threadId, code, e);
+    public void failExecuteHttp(String threadId,int code, Exception e) {
+        super.failExecuteHttp(threadId,code, e);
         netdialog.hidDialog();
-        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
     }
 }
