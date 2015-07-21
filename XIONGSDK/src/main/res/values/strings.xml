@@ -18,6 +18,7 @@
     <string name="the_currentjob_isexecution">当前任务正在执行</string>
     <string name="netsocket_timeout">网络请求超时</string>
     <string name="network_error">网络错误</string>
+    <string name="service_error">服务器异常</string>
     <string name="data_way_cutdown">数据连接中断</string>
 
 </resources>

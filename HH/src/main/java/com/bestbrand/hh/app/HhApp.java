@@ -39,7 +39,7 @@ public class HhApp extends Application {
         // TODO Auto-generated method stub
         super.onCreate();
         AppContext.initContext(this);
-        SMSSDK.initSDK(this, "8d3cd90b6de1", "92eee25cc04e67c9b4ecca0360a9fafa");//调用初始化SMSSDK的方法
+//        SMSSDK.initSDK(this, "8d3cd90b6de1", "92eee25cc04e67c9b4ecca0360a9fafa");//调用初始化SMSSDK的方法
         initEMChat();// 调用初始化环信的SDK的方法
         // 下面两句为闪退异常日志捕获，开发时不需要，打包测试需将下面两句代码打开，以便收集错误日志
 //        CrashHandler crashHandler = CrashHandler.getInstance();

@@ -130,7 +130,7 @@ public class XHttpThread extends Thread {
 				case 0:// 无网络
 					httpCallBack
 							.failExecuteHttp(
-									threadId,
+									threadId,0,
 									new Exception(
 											AppContext.mMainContext
 													.getResources()
@@ -140,7 +140,7 @@ public class XHttpThread extends Thread {
 				case 1:// 不支持编码
 					httpCallBack
 							.failExecuteHttp(
-									threadId,
+									threadId,1,
 									new Exception(
 											AppContext.mMainContext
 													.getResources()
@@ -149,7 +149,7 @@ public class XHttpThread extends Thread {
 					break;
 				case 2:// 请求地址错误
 					httpCallBack.failExecuteHttp(
-							threadId,
+							threadId,2,
 							new Exception(AppContext.mMainContext
 									.getResources().getString(
 											R.string.net_adress_error)));
@@ -157,7 +157,7 @@ public class XHttpThread extends Thread {
 				case 3:// 数据请求失败
 					httpCallBack
 							.failExecuteHttp(
-									threadId,
+									threadId,3,
 									new Exception(
 											AppContext.mMainContext
 													.getResources()
@@ -174,21 +174,21 @@ public class XHttpThread extends Thread {
 					break;
 				case 6:// 请求超时
 					httpCallBack.failExecuteHttp(
-							threadId,
+							threadId,6,
 							new Exception(AppContext.mMainContext
 									.getResources().getString(
 											R.string.netsocket_timeout)));
 					break;
-				case 7:// 请求超时
+				case 7:// 服务器异常
 					httpCallBack.failExecuteHttp(
-							threadId,
+							threadId,7,
 							new Exception(AppContext.mMainContext
 									.getResources().getString(
-											R.string.network_error)));
+											R.string.service_error)));
 					break;
 				case 8:// 数据连接中断
 					if (httpCallBack != null)
-						httpCallBack.failExecuteHttp(threadId, new Exception(
+						httpCallBack.failExecuteHttp(threadId,8, new Exception(
 								AppContext.mMainContext.getResources()
 										.getString(R.string.data_way_cutdown)));
 					break;

@@ -27,13 +27,10 @@ public class UtilHttpToast {
 	 * 
 	 * @param context
 	 *            上下文
-	 * @param httpRequestJson
-	 *            http返回的信息
+	 * @param code
+	 *            错误代码编号
 	 */
-	public void showToast(Context context, String httpRequestJson) {
-		JSONObject jsonObject = JSONObject.parseObject(httpRequestJson);
-		int code = jsonObject.getIntValue("code");
-		String errorInfo = jsonObject.getString("msg");
+	public void showToast(Context context, int code) {
 		switch (code) {
 		case 400:
 			

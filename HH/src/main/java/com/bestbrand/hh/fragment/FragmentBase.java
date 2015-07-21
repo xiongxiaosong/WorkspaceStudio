@@ -92,7 +92,7 @@ public class FragmentBase extends Fragment implements OnClickListener,
 	}
 
 	@Override
-	public void failExecuteHttp(String threadId, Exception e) {
+	public void failExecuteHttp(String threadId,int code, Exception e) {
 		// TODO Auto-generated method stub
 
 	}

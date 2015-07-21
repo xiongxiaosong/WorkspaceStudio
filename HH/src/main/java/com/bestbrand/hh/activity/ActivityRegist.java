@@ -214,9 +214,9 @@ public class ActivityRegist extends ActivityBase implements MyTimerInterCallback
     }
 
     @Override
-    public void failExecuteHttp(String threadId, Exception e) {
+    public void failExecuteHttp(String threadId,int code, Exception e) {
         // TODO Auto-generated method stub
-        super.failExecuteHttp(threadId, e);
+        super.failExecuteHttp(threadId,code, e);
     }
 
     @Override

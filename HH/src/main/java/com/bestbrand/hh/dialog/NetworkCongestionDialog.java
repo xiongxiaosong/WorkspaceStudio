@@ -19,11 +19,6 @@ import com.xxs.sdk.util.LogUtil;
  * @date 2015-03-31
  */
 public class NetworkCongestionDialog extends Dialog implements OnCancelListener {
-	protected NetworkCongestionDialog(Context context, int theme) {
-		super(context, theme);
-		// TODO Auto-generated constructor stub
-	}
-
 	/** 网络请求Id */
 	private String threadId;
 	/** 上下文 */
@@ -39,7 +34,6 @@ public class NetworkCongestionDialog extends Dialog implements OnCancelListener 
 		View view = LayoutInflater.from(activity).inflate(
 				R.layout.dialog_networkcongestion, null);
 		setContentView(view);
-		// setContentView(R.layout.dialog_networkcongestion);
 		this.context = activity;
 		setOnCancelListener(this);
 		setCanceledOnTouchOutside(false);
@@ -48,7 +42,6 @@ public class NetworkCongestionDialog extends Dialog implements OnCancelListener 
 	@Override
 	public void onCancel(DialogInterface dialog) {
 		ThreadManage.getMethod().cancleHttpThread(threadId);
-		LogUtil.e("移除网络请求线程:", threadId);
 	}
 
 	/**

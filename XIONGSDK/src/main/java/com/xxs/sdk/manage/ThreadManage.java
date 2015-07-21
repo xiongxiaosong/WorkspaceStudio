@@ -76,7 +76,7 @@ public class ThreadManage {
 			if (httpCallBack != null)
 				httpCallBack
 						.failExecuteHttp(
-								threadId,
+								threadId,9,
 								new Exception(
 										AppContext.mMainContext
 												.getResources()
