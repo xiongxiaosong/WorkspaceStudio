@@ -124,6 +124,7 @@ public class NotifyManager {
 	public void clearAllNotifiMethod() {
 		notificationManager.cancelAll();
 		notifinumQueens.clear();
+		notifiQueens.clear();
 	}
 
 	/** 清除指定通知内容的方法 */
@@ -132,6 +133,7 @@ public class NotifyManager {
 			int id = notifinumQueens.get(notifiId);
 			notificationManager.cancel(id);
 			notifinumQueens.remove(notifiId);
+			notifiQueens.remove(notifiId);
 		}
 	}
 }

@@ -159,7 +159,22 @@ public class GridPasswordView extends LinearLayout implements PasswordView {
 
         setOnClickListener(onClickListener);
     }
-
+    /**
+     * 设置是否允许点击
+     *
+     * @param allowonclick
+     *            <ul>
+     *            <li>true 当使用系统默认键盘的时候设置允许点击</li>
+     *            <li>false 当需要自定义键盘的时候设置为false屏蔽系统键盘</li>
+     *            </ul>
+     */
+    public void setAllowOnclick(boolean allowonclick) {
+        if (allowonclick) {
+            setOnClickListener(onClickListener);
+        } else {
+            setOnClickListener(null);
+        }
+    }
     private void setCustomAttr(TextView view) {
         if (textColor != null)
             view.setTextColor(textColor);
