@@ -18,8 +18,8 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
 import com.xxs.sdk.R;
-import com.xxs.sdk.myinterface.XGuestureLockCallback;
 import com.xxs.sdk.entity.XGuestLockInfo;
+import com.xxs.sdk.myinterface.XGuestureLockCallback;
 
 /**
  * 自定义手势密码锁控件
@@ -28,89 +28,47 @@ import com.xxs.sdk.entity.XGuestLockInfo;
  * @date 2015-06-11
  */
 public class XGuestureLock extends ViewGroup {
-    /**
-     * 上下文
-     */
+    /** 上下文 */
     private Context mContext;
-    /**
-     * 正常图片
-     */
+    /** 正常图片 */
     private Drawable drawableNormal;
-    /**
-     * 选中图片
-     */
+    /** 选中图片 */
     private Drawable drawableSelected;
-    /**
-     * 错误图片
-     */
+    /** 错误图片 */
     private Drawable drawableError;
-    /**
-     * 正常手势轨迹线条颜色
-     */
+    /** 正常手势轨迹线条颜色 */
     private int lineCorlorNormal;
-    /**
-     * 错误轨迹线条颜色
-     */
+    /** 错误轨迹线条颜色 */
     private int lineCorlorError;
-    /**
-     * 默认颜色
-     */
+    /** 默认颜色 */
     private int defaultColor = 0xFF0000;
-    /**
-     * 布局宽度
-     */
+    /** 布局宽度 */
     private int laywidth;
-    /**
-     * 布局高度
-     */
+    /** 布局高度 */
     private int layheight;
-    /**
-     * 图片队列
-     */
+    /** 图片队列 */
     private ArrayList<XGuestLockInfo> arrayGuestInfo;
-    /**
-     * 绘制轨迹路线的画笔
-     */
+    /** 绘制轨迹路线的画笔 */
     private Paint linePaint;
-    /**
-     * 是否是校验密码
-     */
+    /** 是否是校验密码 */
     private boolean isVerify;
-    /**
-     * 手势轨迹线条宽度
-     */
+    /** 手势轨迹线条宽度 */
     private int lineWidth;
-    /**
-     * 以选中点集合
-     */
+    /** 以选中点集合 */
     private ArrayList<XGuestLockInfo> arrayChoosed;
-    /**
-     * 当前手指触摸位置的X坐标
-     */
+    /** 当前手指触摸位置的X坐标 */
     private float nowX;
-    /**
-     * 当前手指触摸位置的Y坐标
-     */
+    /** 当前手指触摸位置的Y坐标 */
     private float nowY;
-    /**
-     * 手指是否抬起
-     */
+    /** 手指是否抬起 */
     private boolean isTouchup;
-    /**
-     * 是否允许绘制轨迹线
-     */
+    /** 是否允许绘制轨迹线 */
     private boolean isallowDrawLine = true;
-    /**
-     * 是否校验错误
-     */
+    /** 是否校验错误 */
     private boolean isError;
-    /**
-     * 记录手势密码缓存
-     */
+    /** 记录手势密码缓存 */
     private StringBuilder haschoosed;
-    /**
-     * 手势密码回调接口
-     */
+    /** 手势密码回调接口 */
     private XGuestureLockCallback xCallback;
 
     public XGuestureLock(Context context) {
@@ -131,9 +89,7 @@ public class XGuestureLock extends ViewGroup {
         arrayChoosed = new ArrayList<XGuestLockInfo>();
     }
 
-    /**
-     * 初始化的方法
-     */
+    /** 初始化的方法 */
     private void initMethod() {
         linePaint = new Paint();
         linePaint.setAntiAlias(true);
@@ -141,9 +97,7 @@ public class XGuestureLock extends ViewGroup {
         linePaint.setStrokeWidth(lineWidth);
     }
 
-    /**
-     * 初始化一些属性值的方法
-     */
+    /** 初始化一些属性值的方法 */
     private void setCustomAttributes(AttributeSet attrs) {
         TypedArray a = mContext.obtainStyledAttributes(attrs,
                 R.styleable.GestureLock);
@@ -159,9 +113,7 @@ public class XGuestureLock extends ViewGroup {
                 5);
     }
 
-    /**
-     * 添加子View的方法
-     */
+    /** 添加子View的方法 */
     private void addChildMethod() {
         for (int i = 0; i < 9; i++) {
             ImageView image = new ImageView(mContext);
@@ -177,6 +129,7 @@ public class XGuestureLock extends ViewGroup {
         int measureWidth = MeasureSpec.getSize(widthMeasureSpec);
         int measureHeigth = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(measureWidth, measureHeigth);
+        arrayGuestInfo = new ArrayList<XGuestLockInfo>();
         for (int i = 0; i < getChildCount(); i++) {
             View v = getChildAt(i);
             int widthSpec = 0;
@@ -212,7 +165,6 @@ public class XGuestureLock extends ViewGroup {
         layheight = b - t;
         float onewidth = laywidth / 3;
         float oneheight = layheight / 3;
-        arrayGuestInfo = new ArrayList<XGuestLockInfo>();
         for (int i = 0; i < getChildCount(); i++) {
             ImageView mView = (ImageView) getChildAt(i);
             float w = mView.getMeasuredWidth();// 获取View的宽度
@@ -261,11 +213,11 @@ public class XGuestureLock extends ViewGroup {
                     nowY = event.getY();
                     XGuestLockInfo info2 = getPointMethod(nowX, nowY);
                     if (info2 != null && !isPointChooseMethod(info2)) {
-                        if (arrayChoosed.size() > 0) {// 判断中间点并选中
+                        if (arrayChoosed.size() > 0) {
                             XGuestLockInfo info3 = getBetweenPoint(
                                     arrayChoosed.get(arrayChoosed.size() - 1),
                                     info2);
-                            if (info3 != null && !isPointChooseMethod(info3)) {
+                            if (info3 != null && !isPointChooseMethod(info3)) {// 判断中间点并选中
                                 info3.getImageView().setImageDrawable(
                                         drawableSelected);
                                 arrayChoosed.add(info3);
@@ -273,7 +225,6 @@ public class XGuestureLock extends ViewGroup {
                         }
                         info2.getImageView().setImageDrawable(drawableSelected);
                         arrayChoosed.add(info2);
-
                     }
                     postInvalidate();
                     break;
@@ -311,7 +262,8 @@ public class XGuestureLock extends ViewGroup {
     /**
      * 获取当前点是否已经选择过的方法
      *
-     * @param getinfo 手势图标点集对象
+     * @param getinfo
+     *            手势图标点集对象
      * @return 已经选择过 true 没有选择过 false
      */
     private boolean isPointChooseMethod(XGuestLockInfo getinfo) {
@@ -327,8 +279,10 @@ public class XGuestureLock extends ViewGroup {
     /**
      * 获取中间点的方法
      *
-     * @param startpoint 起始点
-     * @param endpoint   结束点
+     * @param startpoint
+     *            起始点
+     * @param endpoint
+     *            结束点
      * @return 得到的中间点
      */
     private XGuestLockInfo getBetweenPoint(XGuestLockInfo startpoint,
@@ -465,6 +419,7 @@ public class XGuestureLock extends ViewGroup {
                 case 0:
                     isallowDrawLine = true;
                     clearMethod();
+                    postInvalidate();
                     break;
 
                 default:
@@ -489,9 +444,10 @@ public class XGuestureLock extends ViewGroup {
             if (isTouchup) {
                 if (arrayChoosed.size() < 4) {
                     if (arrayChoosed.size() > 0) {
-                        if (xCallback != null)
+                        if (xCallback != null) {
                             xCallback
                                     .onXGuestureLockCallback(XGuestureLockCallback.POINT_LENGTH_SHORT);
+                        }
                     }
                     clearMethod();
                 } else {
@@ -502,9 +458,10 @@ public class XGuestureLock extends ViewGroup {
                             isVerify = true;
                         }
                         clearMethod();
-                        if (xCallback != null)
+                        if (xCallback != null) {
                             xCallback
                                     .onXGuestureLockCallback(XGuestureLockCallback.FIRST_LINE_OVER);
+                        }
                     } else {
                         StringBuilder verifychoosed = new StringBuilder();
                         for (XGuestLockInfo xinfo : arrayChoosed) {
@@ -512,21 +469,23 @@ public class XGuestureLock extends ViewGroup {
                         }
                         if (haschoosed.toString().equals(
                                 verifychoosed.toString())) {
-                            if (xCallback != null)
+                            if (xCallback != null) {
+                                clearMethod();
                                 xCallback
                                         .onXGuestureLockCallback(XGuestureLockCallback.TWICE_LINE_SAME);
+                            }
                         } else {
-                            if (xCallback != null)
+                            if (xCallback != null) {
                                 xCallback
                                         .onXGuestureLockCallback(XGuestureLockCallback.TWICE_NOT_SAME);
-                            isError = true;
-                            postInvalidate();
+                                isError = true;
+                                postInvalidate();
+                            }
                         }
                     }
-                    drawaLineMethod(canvas, null, false);
                 }
             } else {
-                drawaLineMethod(canvas, new float[]{nowX, nowY}, false);
+                drawaLineMethod(canvas, new float[] { nowX, nowY }, false);
             }
         }
     }
@@ -534,8 +493,10 @@ public class XGuestureLock extends ViewGroup {
     /**
      * 绘制轨迹线条的方法
      *
-     * @param canvas 画布
-     * @param nowpts 手指当前按下位置的坐标
+     * @param canvas
+     *            画布
+     * @param nowpts
+     *            手指当前按下位置的坐标
      */
     private void drawaLineMethod(Canvas canvas, float[] nowpts, boolean iserror) {
         if (iserror) {
@@ -571,9 +532,7 @@ public class XGuestureLock extends ViewGroup {
         }
     }
 
-    /**
-     * 清空绘制状态的方法
-     */
+    /** 清空绘制状态的方法 */
     public void clearMethod() {
         isError = false;
         arrayChoosed.clear();
@@ -582,44 +541,32 @@ public class XGuestureLock extends ViewGroup {
         }
     }
 
-    /**
-     * 获取是否是手势密码验证
-     */
+    /** 获取是否是手势密码验证 */
     public boolean isVerify() {
         return isVerify;
     }
 
-    /**
-     * 设置是否是手势密码验证
-     */
+    /** 设置是否是手势密码验证 */
     public void setVerify(boolean isVerify) {
         this.isVerify = isVerify;
     }
 
-    /**
-     * 获取手势密码缓存
-     */
+    /** 获取手势密码缓存 */
     public StringBuilder getHaschoosed() {
         return haschoosed;
     }
 
-    /**
-     * 设置手势密码缓存
-     */
+    /** 设置手势密码缓存 */
     public void setHaschoosed(StringBuilder haschoosed) {
         this.haschoosed = haschoosed;
     }
 
-    /**
-     * 获取手势密码回调接口
-     */
+    /** 获取手势密码回调接口 */
     public XGuestureLockCallback getxCallback() {
         return xCallback;
     }
 
-    /**
-     * 设置手势密码回调接口
-     */
+    /** 设置手势密码回调接口 */
     public void setxCallback(XGuestureLockCallback xCallback) {
         this.xCallback = xCallback;
     }
