@@ -26,7 +26,7 @@ import com.xxs.sdk.util.ProveUtil;
 
 /**
  * 网络请求线程
- *
+ * 
  * @author xiongxs
  * @date 2014-10-08
  * @introduce 实现网络求数据请求的线程，得到请求结果并且发送回调消息
@@ -38,14 +38,18 @@ public class XDownLoadThread extends Thread {
 	private String threadId;
 	private String filename;
 	private boolean iscancle;
+	/** 支持断点 */
 	private HttpURLConnection httpUrlConn;
+	/** 不支持断点 */
+	private HttpURLConnection httpUrlConn2;
 	/** 总长度 */
 	private long totlelength;
 	/** 当前长度 */
 	private long nowlength;
 	/** 已经下载的长度 */
 	private long hasdownlength;
-
+	/**输出流*/
+	private FileOutputStream fos;
 	/** 构造函数 */
 	public XDownLoadThread() {
 
@@ -53,7 +57,7 @@ public class XDownLoadThread extends Thread {
 
 	/**
 	 * 构造函数
-	 *
+	 * 
 	 * @param threadId
 	 *            线程ID,通过程序控制生成唯一的ID序列
 	 * @param httpCallBack
@@ -64,7 +68,7 @@ public class XDownLoadThread extends Thread {
 	 *            下载保存名称
 	 */
 	public XDownLoadThread(String threadId, XDownLoadCallback httpCallBack,
-						   String path, String filename) {
+			String path, String filename) {
 		this.httpCallBack = httpCallBack;
 		this.path = path;
 		this.threadId = threadId;
@@ -87,7 +91,6 @@ public class XDownLoadThread extends Thread {
 				if (savefile.exists()) {
 					savefile.delete();
 				}
-				FileOutputStream fos;
 				if (tempfile.exists()) {
 					hasdownlength = tempfile.length();
 					nowlength = hasdownlength;
@@ -98,7 +101,7 @@ public class XDownLoadThread extends Thread {
 				URL url = new URL(path);
 				httpUrlConn = (HttpURLConnection) url.openConnection();
 				httpUrlConn.setRequestProperty("RANGE", "bytes="
-						+ hasdownlength + "-");//特别设置断点续传
+						+ hasdownlength + "-");// 特别设置断点续传
 				totlelength = httpUrlConn.getContentLength();
 				if (totlelength < 0) {// 如果读取出来为-1重新设置一下对Gzip不支持再获取
 					httpUrlConn.disconnect();
@@ -106,17 +109,49 @@ public class XDownLoadThread extends Thread {
 					httpUrlConn.setRequestProperty("Accept-Encoding",
 							"identity");
 					httpUrlConn.setRequestProperty("RANGE", "bytes="
-							+ hasdownlength + "-"); //特别设置断点续传
+							+ hasdownlength + "-"); // 特别设置断点续传
 					totlelength = httpUrlConn.getContentLength();
 				}
-				totlelength = totlelength + hasdownlength;
-				if (!(httpUrlConn.getResponseCode() == HttpStatus.SC_OK||httpUrlConn.getResponseCode()==HttpStatus.SC_PARTIAL_CONTENT)) {
+				if (!(httpUrlConn.getResponseCode() == HttpStatus.SC_OK || httpUrlConn
+						.getResponseCode() == HttpStatus.SC_PARTIAL_CONTENT)) {
 					handler.sendEmptyMessage(7);
 					fos.close();
 					return;
 				}
-				InputStream inputStream = new BufferedInputStream(
-						httpUrlConn.getInputStream());
+				boolean isallowbreeak;// 是否支持断点
+				if (totlelength < 0) {
+					httpUrlConn.disconnect();
+					fos = new FileOutputStream(tempfile);
+					hasdownlength = 0;
+					nowlength = 0;
+					isallowbreeak = false;
+					httpUrlConn2 = (HttpURLConnection) url.openConnection();
+					totlelength = httpUrlConn2.getContentLength();
+					if (totlelength < 0) {// 如果读取出来为-1重新设置一下对Gzip不支持再获取
+						httpUrlConn2.disconnect();
+						httpUrlConn2 = (HttpURLConnection) url.openConnection();
+						httpUrlConn2.setRequestProperty("Accept-Encoding",
+								"identity");
+						totlelength = httpUrlConn2.getContentLength();
+					}
+					if (!(httpUrlConn2.getResponseCode() == HttpStatus.SC_OK || httpUrlConn2
+							.getResponseCode() == HttpStatus.SC_PARTIAL_CONTENT)) {
+						handler.sendEmptyMessage(7);
+						fos.close();
+						return;
+					}
+				} else {
+					isallowbreeak = true;
+				}
+				totlelength = totlelength + hasdownlength;
+				InputStream inputStream;
+				if (isallowbreeak) {
+					inputStream = new BufferedInputStream(
+							httpUrlConn.getInputStream());
+				} else {
+					inputStream = new BufferedInputStream(
+							httpUrlConn2.getInputStream());
+				}
 				// 缓存
 				byte buf[] = new byte[1024 * 1024];
 				int numread = inputStream.read(buf);
@@ -167,69 +202,69 @@ public class XDownLoadThread extends Thread {
 					ThreadManage.getMethod().removeDownloadThread(threadId);
 				}
 				switch (msg.what) {
-					case 0:// 无网络
-						httpCallBack
-								.onXDownLoadFailed(
-										threadId,
-										new Exception(
-												AppContext.mMainContext
-														.getResources()
-														.getString(
-																R.string.nonetwork_please_checknet)));
-						break;
-					case 1:// 不支持编码
-						httpCallBack
-								.onXDownLoadFailed(
-										threadId,
-										new Exception(
-												AppContext.mMainContext
-														.getResources()
-														.getString(
-																R.string.notsurport_encodtransform)));
-						break;
-					case 2:// 请求地址错误
-						httpCallBack.onXDownLoadFailed(
-								threadId,
-								new Exception(AppContext.mMainContext
-										.getResources().getString(
-												R.string.net_adress_error)));
-						break;
-					case 3:// 数据请求失败
-						httpCallBack
-								.onXDownLoadFailed(
-										threadId,
-										new Exception(
-												AppContext.mMainContext
-														.getResources()
-														.getString(
-																R.string.falsegetdata_please_checknet)));
-						break;
-					case 4:// 下载完成
-						httpCallBack.onXDownLoadFinish(threadId);
-						break;
-					case 5:// 开始请求网络
-						httpCallBack.onXDownLoadStart(threadId);
-						break;
-					case 6:// 请求超时
-						httpCallBack.onXDownLoadFailed(
-								threadId,
-								new Exception(AppContext.mMainContext
-										.getResources().getString(
-												R.string.netsocket_timeout)));
-						break;
-					case 7:// 网络错误
-						httpCallBack.onXDownLoadFailed(
-								threadId,
-								new Exception(AppContext.mMainContext
-										.getResources().getString(
-												R.string.network_error)));
-						break;
-					case 8:// 下载中
-						httpCallBack.onXDownLoadLoad(threadId, totlelength,
-								nowlength);
-						break;
-					default:
-						break;
+				case 0:// 无网络
+					httpCallBack
+							.onXDownLoadFailed(
+									threadId,
+									new Exception(
+											AppContext.mMainContext
+													.getResources()
+													.getString(
+															R.string.nonetwork_please_checknet)));
+					break;
+				case 1:// 不支持编码
+					httpCallBack
+							.onXDownLoadFailed(
+									threadId,
+									new Exception(
+											AppContext.mMainContext
+													.getResources()
+													.getString(
+															R.string.notsurport_encodtransform)));
+					break;
+				case 2:// 请求地址错误
+					httpCallBack.onXDownLoadFailed(
+							threadId,
+							new Exception(AppContext.mMainContext
+									.getResources().getString(
+											R.string.net_adress_error)));
+					break;
+				case 3:// 数据请求失败
+					httpCallBack
+							.onXDownLoadFailed(
+									threadId,
+									new Exception(
+											AppContext.mMainContext
+													.getResources()
+													.getString(
+															R.string.falsegetdata_please_checknet)));
+					break;
+				case 4:// 下载完成
+					httpCallBack.onXDownLoadFinish(threadId);
+					break;
+				case 5:// 开始请求网络
+					httpCallBack.onXDownLoadStart(threadId);
+					break;
+				case 6:// 请求超时
+					httpCallBack.onXDownLoadFailed(
+							threadId,
+							new Exception(AppContext.mMainContext
+									.getResources().getString(
+											R.string.netsocket_timeout)));
+					break;
+				case 7:// 网络错误
+					httpCallBack.onXDownLoadFailed(
+							threadId,
+							new Exception(AppContext.mMainContext
+									.getResources().getString(
+											R.string.network_error)));
+					break;
+				case 8:// 下载中
+					httpCallBack.onXDownLoadLoad(threadId, totlelength,
+							nowlength);
+					break;
+				default:
+					break;
 				}
 			}
 		}
@@ -239,6 +274,8 @@ public class XDownLoadThread extends Thread {
 	public void disConnectDownloadMethod() throws Exception {
 		if (httpUrlConn != null)
 			httpUrlConn.disconnect();
+		if (httpUrlConn2 != null)
+			httpUrlConn2.disconnect();
 	}
 
 	/** 取消Http连接的方法 */
