@@ -86,7 +86,7 @@ public class LogUtil {
 			if (Build.VERSION.SDK_INT > Build.VERSION_CODES.DONUT
 					&& ProveUtil.ifSDCardEnable()) {
 				String DATE = DateUtil.getDate();
-				String filePath = creatRootLogFile("LOG");
+				String filePath = FileUtil.creatRootLogFile("LOG");
 				File mFile = new File(filePath,DATE + ".txt");
 				if(!mFile.exists()){
 					mFile.createNewFile();
@@ -99,39 +99,5 @@ public class LogUtil {
 		} catch (IOException e) {
 			
 		}
-	}
-	/**
-	 * 创建指定名称根目录的方法
-	 * @param dirname 根目录名称
-	 */
-	private static String creatRootLogFile(String dirname) {
-		String rootDir = null;
-		if (ProveUtil.ifSDCardEnable()) {
-//			LogUtil.d(LOG_TAG, "SDCard is usebale");
-			rootDir = Environment.getExternalStorageDirectory()
-					.getAbsolutePath()
-					+ "/Android/data/"
-					+ AppContext.mMainContext.getPackageName()
-					+ File.separator
-					+ dirname ;
-
-			// 创建文件目录
-			File file = new File(rootDir);
-			if (!file.exists()) // 创建目录
-			{
-				file.mkdirs();
-			}
-		} else {
-//			LogUtil.d(LOG_TAG, "SDCard is not usebale");
-			rootDir = AppContext.mMainContext.getCacheDir() + File.separator
-					+dirname;
-			// 创建文件目录
-			File file = new File(rootDir);
-			if (!file.exists()) // 创建目录
-			{
-				file.mkdirs();
-			}
-		}
-		return rootDir;
 	}
 }

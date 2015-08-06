@@ -46,7 +46,6 @@ public class FileUtil {
 	public static String creatRootLogFile(String dirname) {
 		String rootDir = null;
 		if (ProveUtil.ifSDCardEnable()) {
-			LogUtil.d(TAG, "SDCard is usebale");
 			rootDir = Environment.getExternalStorageDirectory()
 					.getAbsolutePath()
 					+ "/Android/data/"
@@ -61,7 +60,6 @@ public class FileUtil {
 				file.mkdirs();
 			}
 		} else {
-			LogUtil.d(TAG, "SDCard is not usebale");
 			rootDir = AppContext.mMainContext.getCacheDir() + File.separator
 					+ dirname;
 			// 创建文件目录
