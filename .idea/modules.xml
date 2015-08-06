@@ -3,10 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HH/HH.iml" filepath="$PROJECT_DIR$/HH/HH.iml" />
-      <module fileurl="file://$PROJECT_DIR$/HealthManage/HealthManage.iml" filepath="$PROJECT_DIR$/HealthManage/HealthManage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmsTest/SmsTest.iml" filepath="$PROJECT_DIR$/SmsTest/SmsTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/WorkspaceStudio.iml" filepath="$PROJECT_DIR$/WorkspaceStudio.iml" />
       <module fileurl="file://$PROJECT_DIR$/XIONGSDK/XIONGSDK.iml" filepath="$PROJECT_DIR$/XIONGSDK/XIONGSDK.iml" />
     </modules>
   </component>
 </project>
-

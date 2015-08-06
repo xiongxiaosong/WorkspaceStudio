@@ -1,1 +1,1 @@
-include  ':XIONGSDK', ':HealthManage', ':HH'
+include  ':XIONGSDK', ':HH', ':SmsTest'
